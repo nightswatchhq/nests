@@ -52,7 +52,7 @@
       "summary": "The Graph's own protocol state \u2014 staking provisions, allocations, delegation, curation and rewards. The data every indexer pays GRT to read today.",
       "events": "ProvisionCreated, AllocationCreated, AllocationClosed, TokensDelegated, Signalled, HorizonRewardsAssigned",
       "note": "Covers the Horizon staking/service surface today (operators, allocations, delegations, rewards); extending to the full network-subgraph surface \u2014 Indexer Directory, Curation, Epochs (RFC-0011).",
-      "repo": "https://github.com/nuthatch-indexer/horizon-nest"
+      "repo": "https://github.com/nightswatchhq/horizon-nest"
     },
     {
       "id": "ebo",
@@ -102,7 +102,7 @@
       "summary": "Concentrated-liquidity DEX \u2014 every pool discovered from the factory, with swaps, prices, and gross volume. The showcase for factory discovery: one rule tracks every pool, no per-pool config.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
       "note": "Configured for Arbitrum; the factory address is identical on every chain, so re-pointing is a two-line edit. Token decimals / USD pricing need a vendored token list (the declarative core makes no contract calls).",
-      "repo": "https://github.com/nuthatch-indexer/uniswap-v3"
+      "repo": "https://github.com/nightswatchhq/uniswap-v3"
     },
     {
       "id": "aave-v3",
