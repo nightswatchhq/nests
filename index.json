@@ -15,10 +15,10 @@
       ],
       "factory": false,
       "complexity": "trivial",
-      "summary": "Any ERC-20 \u2014 transfers, holders and supply. Generated straight from the contract address; no repo to clone.",
+      "summary": "Any ERC-20 — transfers, holders and supply. Generated straight from the contract address; no repo to clone.",
       "events": "Transfer, Approval",
       "command": "nuthatch init 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 --chain mainnet",
-      "note": "Generic decode \u2014 works for any token today. The example above is USDC."
+      "note": "Generic decode — works for any token today. The example above is USDC."
     },
     {
       "id": "erc721-nft",
@@ -33,10 +33,10 @@
       ],
       "factory": false,
       "complexity": "low",
-      "summary": "Any NFT collection \u2014 ownership and full transfer history, resolved from the collection address.",
+      "summary": "Any NFT collection — ownership and full transfer history, resolved from the collection address.",
       "events": "Transfer, ApprovalForAll, TransferSingle, TransferBatch",
       "command": "nuthatch init 0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D --chain mainnet",
-      "note": "Generic decode \u2014 works for any collection today. The example above is BAYC."
+      "note": "Generic decode — works for any collection today. The example above is BAYC."
     },
     {
       "id": "horizon",
@@ -49,9 +49,9 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The Graph's own protocol state \u2014 staking provisions, allocations, delegation, curation and rewards. The data every indexer pays GRT to read today.",
+      "summary": "The Graph's own protocol state — staking provisions, allocations, delegation, curation and rewards. The data every indexer pays GRT to read today.",
       "events": "ProvisionCreated, AllocationCreated, AllocationClosed, TokensDelegated, Signalled, HorizonRewardsAssigned",
-      "note": "Covers the Horizon staking/service surface today (operators, allocations, delegations, rewards); extending to the full network-subgraph surface \u2014 Indexer Directory, Curation, Epochs (RFC-0011).",
+      "note": "Covers the Horizon staking/service surface today (operators, allocations, delegations, rewards); extending to the full network-subgraph surface — Indexer Directory, Curation, Epochs (RFC-0011).",
       "repo": "https://github.com/nuthatch-indexer/horizon-nest"
     },
     {
@@ -65,7 +65,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The per-epoch canonical block for every indexed chain \u2014 the reference all indexers use to close multichain allocations consistently.",
+      "summary": "The per-epoch canonical block for every indexed chain — the reference all indexers use to close multichain allocations consistently.",
       "events": "DataEdge calldata payloads (EventfulDataEdge emits on Arbitrum)",
       "note": "Needs the calldata decoder (the node-independent RFC-0014 slice)."
     },
@@ -80,9 +80,9 @@
       ],
       "factory": false,
       "complexity": "high",
-      "summary": "Indexer quality-of-service and reward eligibility \u2014 off-chain gateway telemetry posted on-chain.",
+      "summary": "Indexer quality-of-service and reward eligibility — off-chain gateway telemetry posted on-chain.",
       "events": "Rewards Eligibility Oracle postings (GIP-0079)",
-      "note": "On-chain shape still consolidating post-Horizon \u2014 a watch-and-follow target."
+      "note": "On-chain shape still consolidating post-Horizon — a watch-and-follow target."
     },
     {
       "id": "uniswap-v3",
@@ -99,7 +99,7 @@
       ],
       "factory": true,
       "complexity": "high",
-      "summary": "Concentrated-liquidity DEX \u2014 every pool discovered from the factory, with swaps, prices, and gross volume. The showcase for factory discovery: one rule tracks every pool, no per-pool config.",
+      "summary": "Concentrated-liquidity DEX — every pool discovered from the factory, with swaps, prices, and gross volume. The showcase for factory discovery: one rule tracks every pool, no per-pool config.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
       "note": "Configured for Arbitrum; the factory address is identical on every chain, so re-pointing is a two-line edit. Token decimals / USD pricing need a vendored token list (the declarative core makes no contract calls).",
       "repo": "https://github.com/nuthatch-indexer/uniswap-v3"
@@ -119,7 +119,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The lending flagship \u2014 supplies, borrows, repayments, liquidations and rates across 20+ chains.",
+      "summary": "The lending flagship — supplies, borrows, repayments, liquidations and rates across 20+ chains.",
       "events": "Supply, Borrow, Repay, LiquidationCall, ReserveUsedAsCollateral"
     },
     {
@@ -133,7 +133,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The archetypal name-service index \u2014 registrations, expiries, resolvers and records across the registry and registrar.",
+      "summary": "The archetypal name-service index — registrations, expiries, resolvers and records across the registry and registrar.",
       "events": "NameRegistered, NameRenewed, Transfer, NewResolver"
     },
     {
@@ -151,7 +151,7 @@
       ],
       "factory": true,
       "complexity": "medium",
-      "summary": "Constant-product AMM \u2014 the simpler Uniswap, and the template Sushiswap reuses. One nest, two protocols.",
+      "summary": "Constant-product AMM — the simpler Uniswap, and the template Sushiswap reuses. One nest, two protocols.",
       "events": "PairCreated, Swap, Mint, Burn, Sync"
     },
     {
@@ -168,7 +168,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "cToken and Comet money-markets \u2014 supply, borrow, repayment and liquidation.",
+      "summary": "cToken and Comet money-markets — supply, borrow, repayment and liquidation.",
       "events": "Mint, Redeem, Borrow, RepayBorrow, LiquidateBorrow"
     },
     {
@@ -182,7 +182,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The liquid-staking leader \u2014 stETH/wstETH deposits, withdrawals, rebases and oracle reporting.",
+      "summary": "The liquid-staking leader — stETH/wstETH deposits, withdrawals, rebases and oracle reporting.",
       "events": "Submitted, Transfer, TokenRebased, WithdrawalRequested"
     },
     {
@@ -200,7 +200,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "The protocol behind the largest NFT marketplace \u2014 order fulfilment and cancellation.",
+      "summary": "The protocol behind the largest NFT marketplace — order fulfilment and cancellation.",
       "events": "OrderFulfilled, OrderCancelled, CounterIncremented"
     },
     {
@@ -217,7 +217,7 @@
       ],
       "factory": true,
       "complexity": "high",
-      "summary": "StableSwap AMM \u2014 pools, exchanges and liquidity with invariant pricing.",
+      "summary": "StableSwap AMM — pools, exchanges and liquidity with invariant pricing.",
       "events": "TokenExchange, AddLiquidity, RemoveLiquidity"
     },
     {
@@ -231,7 +231,7 @@
       ],
       "factory": false,
       "complexity": "medium",
-      "summary": "Restaking \u2014 operator registration, staker delegation, deposits and withdrawals.",
+      "summary": "Restaking — operator registration, staker delegation, deposits and withdrawals.",
       "events": "OperatorRegistered, StakerDelegated, Deposit, WithdrawalQueued"
     },
     {
@@ -245,7 +245,7 @@
       ],
       "factory": false,
       "complexity": "high",
-      "summary": "Perpetuals \u2014 position lifecycle, PnL and liquidations.",
+      "summary": "Perpetuals — position lifecycle, PnL and liquidations.",
       "events": "IncreasePosition, DecreasePosition, LiquidatePosition"
     },
     {
@@ -259,8 +259,24 @@
       ],
       "factory": false,
       "complexity": "high",
-      "summary": "The DAI/USDS CDP engine \u2014 vaults, collateral and liquidations.",
+      "summary": "The DAI/USDS CDP engine — vaults, collateral and liquidations.",
       "events": "vat.frob, vat.grab, Bark (Dog)"
+    },
+    {
+      "id": "poa",
+      "name": "POA",
+      "category": "DAO tooling",
+      "tier": 3,
+      "status": "available",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": true,
+      "complexity": "high",
+      "summary": "A full DAO-tooling stack — org deployment, Hats-based roles, tasks and bounties, hybrid + direct-democracy voting, and a gas paymaster. Replaces a subgraph that had been stuck syncing for over a day.",
+      "events": "OrgDeployed, ContractRegistered, TransferSingle, TaskCreated, TaskCompleted, NewProposal, VoteCast, UsageIncreased",
+      "note": "19 contracts and 207 tables across 42.5M Arbitrum blocks — 848 events, sealed in 59s. The subgraph stalls on 10 file/ipfs data sources and 19 dynamic templates; this nest indexes metadata hashes instead of fetching CIDs, keeping the indexing path offline and deterministic.",
+      "repo": "https://github.com/nightswatchhq/poa-nest"
     }
   ]
 }
