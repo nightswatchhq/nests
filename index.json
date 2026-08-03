@@ -85,6 +85,22 @@
       "note": "On-chain shape still consolidating post-Horizon \u2014 a watch-and-follow target."
     },
     {
+      "id": "uniswap-v4",
+      "name": "Uniswap V4",
+      "category": "DEX",
+      "tier": 1,
+      "status": "available",
+      "chains": [
+        "Ethereum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Concentrated liquidity in a singleton \u2014 every pool lives inside one PoolManager, so there is no factory and no pool contracts. Hook adoption, per-pool activity and liquidity.",
+      "events": "Initialize, Swap, ModifyLiquidity, Donate, Transfer, ProtocolFeeUpdated",
+      "note": "Structurally the SIMPLEST nest in the catalogue \u2014 one static contract, no templates, no factory rules. The work is volume, not config: ~17 events/block, ~68M events for full history from block 21688329 (~7 h at a measured 2,785 ev/s). Ships with a recent-history quickstart. No USD pricing (needs a token list; the declarative core makes no contract calls).",
+      "repo": "https://github.com/nightswatchhq/uniswap-v4-ethereum"
+    },
+    {
       "id": "uniswap-v3",
       "name": "Uniswap V3",
       "category": "DEX",

@@ -18,6 +18,7 @@ A nest is consumed with `nuthatch init --from <repo-url>`, or generated straight
 | **QoS / Rewards-Eligibility Oracle** | Graph infra | 0 · beachhead | ⚪ planned | — |
 | **Aave V3** | Lending | 1 | ⚪ planned | — |
 | **ENS** | Name service | 1 | ⚪ planned | — |
+| **Uniswap V4** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-ethereum) · [uniswap-v4-ethereum](https://github.com/nightswatchhq/uniswap-v4-ethereum) |
 | **Uniswap V3** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v3) · [uniswap-v3](https://github.com/nightswatchhq/uniswap-v3) |
 | **Compound V2 + V3** | Lending | 2 | ⚪ planned | — |
 | **Curve** | DEX | 2 | ⚪ planned | — |
