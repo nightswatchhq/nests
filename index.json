@@ -109,9 +109,7 @@
       "chains": [
         "Arbitrum",
         "Ethereum",
-        "Optimism",
-        "Base",
-        "Polygon"
+        "Base"
       ],
       "factory": true,
       "complexity": "high",
@@ -129,9 +127,7 @@
       "chains": [
         "Ethereum",
         "Arbitrum",
-        "Optimism",
-        "Base",
-        "Polygon"
+        "Base"
       ],
       "factory": false,
       "complexity": "medium",
@@ -161,9 +157,7 @@
       "chains": [
         "Ethereum",
         "Arbitrum",
-        "Optimism",
-        "Base",
-        "Polygon"
+        "Base"
       ],
       "factory": true,
       "complexity": "medium",
@@ -179,8 +173,7 @@
       "chains": [
         "Ethereum",
         "Arbitrum",
-        "Base",
-        "Polygon"
+        "Base"
       ],
       "factory": false,
       "complexity": "medium",
@@ -210,9 +203,7 @@
       "chains": [
         "Ethereum",
         "Arbitrum",
-        "Optimism",
-        "Base",
-        "Polygon"
+        "Base"
       ],
       "factory": false,
       "complexity": "medium",
@@ -227,9 +218,7 @@
       "status": "planned",
       "chains": [
         "Ethereum",
-        "Arbitrum",
-        "Optimism",
-        "Polygon"
+        "Arbitrum"
       ],
       "factory": true,
       "complexity": "high",
@@ -310,5 +299,6 @@
       "note": "19 contracts and 207 tables across 42.5M Arbitrum blocks \u2014 848 events, sealed in 59s. The subgraph stalls on 10 file/ipfs data sources and 19 dynamic templates; this nest indexes metadata hashes instead of fetching CIDs, keeping the indexing path offline and deterministic.",
       "repo": "https://github.com/nightswatchhq/poa-nest"
     }
-  ]
+  ],
+  "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
 }
