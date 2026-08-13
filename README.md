@@ -20,6 +20,7 @@ A nest is consumed with `nuthatch init --from <repo-url>`, or generated straight
 | **ENS** | Name service | 1 | ⚪ planned | — |
 | **Uniswap V4** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-ethereum) · [uniswap-v4-ethereum](https://github.com/nightswatchhq/uniswap-v4-ethereum) |
 | **Uniswap V3** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v3) · [uniswap-v3](https://github.com/nightswatchhq/uniswap-v3) |
+| **SquadSwap WOW v2** | DEX | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) · [squadswap-wow-v2-bsc](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) |
 | **Compound V2 + V3** | Lending | 2 | ⚪ planned | — |
 | **Curve** | DEX | 2 | ⚪ planned | — |
 | **Lido** | Staking / LST | 2 | ⚪ planned | — |

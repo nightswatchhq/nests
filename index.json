@@ -226,6 +226,22 @@
       "events": "TokenExchange, AddLiquidity, RemoveLiquidity"
     },
     {
+      "category": "DEX",
+      "chains": [
+        "BNB Smart Chain"
+      ],
+      "complexity": "high",
+      "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash, SetCustomFee, ToggleCustomFee, IncreaseLiquidity, DecreaseLiquidity, Transfer",
+      "factory": true,
+      "id": "squadswap-wow-v2-bsc",
+      "name": "SquadSwap WOW v2",
+      "note": "Ported straight from the live subgraph deployment QmQTCx7o6NW9SdJuyQSCYz71YLm3K43dkmtjZ38hbqvwPL, with that deployment's own pinned ABIs vendored rather than re-resolved. A PancakeSwap-V3 fork, so Swap carries protocolFeesToken0/1 that vanilla V3 does not emit. Needs a BSC archive endpoint for history: every free public BSC RPC tested refuses deep getLogs or archive state - run nuthatch doctor before trusting one.",
+      "repo": "https://github.com/nightswatchhq/squadswap-wow-v2-bsc",
+      "status": "available",
+      "summary": "Concentrated-liquidity DEX on BNB Smart Chain with a fee-override layer vanilla V3 lacks: a separate PoolManager can override a pool's fee and toggle it independently, so the launch tier is not the live fee. Pools are factory-discovered.",
+      "tier": 3
+    },
+    {
       "id": "livepeer",
       "name": "Livepeer",
       "category": "Video infra",
