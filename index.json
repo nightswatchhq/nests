@@ -67,7 +67,7 @@
       "complexity": "low",
       "summary": "HorizonStaking delegation history: deposits, undelegations and completed withdrawals for Graph indexers and delegators.",
       "events": "TokensDelegated, TokensUndelegated, DelegatedTokensWithdrawn, StakeDelegatedWithdrawn",
-      "note": "Standalone package for Lodestar's Delegation Activity feed. Installable now; fixed-block parity fixtures are the remaining release gate.",
+      "note": "Standalone package for Lodestar's Delegation Activity feed. Archive-backed fixtures are committed; independent source comparison and Lodestar cutover remain the release gate.",
       "repo": "https://github.com/nightswatchhq/graph-staking-nest"
     },
     {
@@ -83,7 +83,7 @@
       "complexity": "low",
       "summary": "L2GNS subgraph publication history, including the event stream behind Graph developer-activity metrics.",
       "events": "SubgraphPublished",
-      "note": "Standalone package for Lodestar's Developer Activity chart. Installable now; fixed-block parity fixtures are the remaining release gate.",
+      "note": "Standalone package for Lodestar's Developer Activity chart. Archive-backed fixtures are committed; independent source comparison and Lodestar cutover remain the release gate.",
       "repo": "https://github.com/nightswatchhq/graph-gns-nest"
     },
     {
