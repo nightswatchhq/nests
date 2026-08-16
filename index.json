@@ -101,6 +101,22 @@
       "repo": "https://github.com/nightswatchhq/uniswap-v4-ethereum"
     },
     {
+      "id": "uniswap-v4-base",
+      "name": "Uniswap V4 Base",
+      "category": "DEX",
+      "tier": 1,
+      "status": "available",
+      "chains": [
+        "Base"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Uniswap V4's Base deployment - pool lifecycle and swaps, PositionManager subscriptions, and Arrakis private-hook creation, all from three static contracts.",
+      "events": "Initialize, ModifyLiquidity, Swap, Subscription, Unsubscription, Transfer, LogCreatePrivateHook",
+      "note": "Derived from Graph deployment Qmbsc6XQWbiv4DfLVfaNciScqYLyDWUYjWzrFBbzzmRsMB. Event inputs are covered exactly; Graph's eth_call-derived token metadata, valuation, and entity time series are intentionally not claimed. Live-tested over 9,403 Base blocks at 3,484 decoded events/s.",
+      "repo": "https://github.com/nightswatchhq/uniswap-v4-base"
+    },
+    {
       "id": "uniswap-v3",
       "name": "Uniswap V3",
       "category": "DEX",
