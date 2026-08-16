@@ -41,7 +41,7 @@
     {
       "id": "horizon",
       "name": "Graph Horizon",
-      "category": "Graph infra",
+      "category": "Graph Protocol",
       "tier": 0,
       "status": "available",
       "chains": [
@@ -55,9 +55,41 @@
       "repo": "https://github.com/nightswatchhq/horizon-nest"
     },
     {
+      "id": "graph-staking",
+      "name": "Graph Staking",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "building",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "HorizonStaking delegation history: deposits, undelegations and completed withdrawals for Graph indexers and delegators.",
+      "events": "TokensDelegated, TokensUndelegated, DelegatedTokensWithdrawn, StakeDelegatedWithdrawn",
+      "note": "Already serves Lodestar's Delegation Activity feed in production. Installable now; fixed-block parity fixtures are the remaining release gate.",
+      "repo": "https://github.com/nightswatchhq/graph-staking-nest"
+    },
+    {
+      "id": "graph-gns",
+      "name": "Graph Name Service",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "building",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "L2GNS subgraph publication history, including the event stream behind Graph developer-activity metrics.",
+      "events": "SubgraphPublished",
+      "note": "Already serves Lodestar's Developer Activity chart in production. Installable now; fixed-block parity fixtures are the remaining release gate.",
+      "repo": "https://github.com/nightswatchhq/graph-gns-nest"
+    },
+    {
       "id": "ebo",
       "name": "Epoch Block Oracle",
-      "category": "Graph infra",
+      "category": "Graph Protocol",
       "tier": 0,
       "status": "planned",
       "chains": [
@@ -72,7 +104,7 @@
     {
       "id": "qos-reo",
       "name": "QoS / Rewards-Eligibility Oracle",
-      "category": "Graph infra",
+      "category": "Graph Protocol",
       "tier": 0,
       "status": "planned",
       "chains": [

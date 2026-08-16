@@ -11,11 +11,13 @@ A nest is consumed with `nuthatch init --from <repo-url>`, or generated straight
 
 | Nest | Category | Tier | Status | Get it |
 |------|----------|:----:|--------|--------|
-| **Graph Horizon** | Graph infra | 0 · beachhead | 🟢 available | [`init --from`](https://github.com/nightswatchhq/horizon-nest) · [horizon-nest](https://github.com/nightswatchhq/horizon-nest) |
+| **Graph Horizon** | Graph Protocol | 0 · beachhead | 🟢 available | [`init --from`](https://github.com/nightswatchhq/horizon-nest) · [horizon-nest](https://github.com/nightswatchhq/horizon-nest) |
+| **Graph Staking** | Graph Protocol | 0 · beachhead | 🟡 building | [`init --from`](https://github.com/nightswatchhq/graph-staking-nest) · [graph-staking-nest](https://github.com/nightswatchhq/graph-staking-nest) |
+| **Graph Name Service** | Graph Protocol | 0 · beachhead | 🟡 building | [`init --from`](https://github.com/nightswatchhq/graph-gns-nest) · [graph-gns-nest](https://github.com/nightswatchhq/graph-gns-nest) |
+| **Epoch Block Oracle** | Graph Protocol | 0 · beachhead | ⚪ planned | — |
+| **QoS / Rewards-Eligibility Oracle** | Graph Protocol | 0 · beachhead | ⚪ planned | — |
 | **ERC-20 token** | Token | 1 | 🟢 available | `init 0xAddr` (generic) |
 | **ERC-721 / ERC-1155 NFT** | NFT | 1 | 🟢 available | `init 0xAddr` (generic) |
-| **Epoch Block Oracle** | Graph infra | 0 · beachhead | ⚪ planned | — |
-| **QoS / Rewards-Eligibility Oracle** | Graph infra | 0 · beachhead | ⚪ planned | — |
 | **Aave V3** | Lending | 1 | ⚪ planned | — |
 | **ENS** | Name service | 1 | ⚪ planned | — |
 | **Uniswap V4** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-ethereum) · [uniswap-v4-ethereum](https://github.com/nightswatchhq/uniswap-v4-ethereum) |
