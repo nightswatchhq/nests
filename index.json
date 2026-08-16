@@ -87,6 +87,22 @@
       "repo": "https://github.com/nightswatchhq/graph-gns-nest"
     },
     {
+      "id": "graph-tap-escrow",
+      "name": "Graph TAP Escrow",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "planned",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Legacy TAP Escrow account funding, settlement, thaw, and authorised-signer event history.",
+      "events": "Deposit, Redeem, Withdraw, Thaw, CancelThaw, AuthorizeSigner, RevokeAuthorizedSigner, ThawSigner, CancelThawSigner",
+      "note": "Standalone replacement for the legacy TAP Escrow subgraph. The repository is public; fixed-block parity fixtures are required before it becomes available.",
+      "repo": "https://github.com/nightswatchhq/graph-tap-escrow-nest"
+    },
+    {
       "id": "ebo",
       "name": "Epoch Block Oracle",
       "category": "Graph Protocol",

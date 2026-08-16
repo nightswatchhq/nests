@@ -7,15 +7,25 @@ A nest is consumed with `nuthatch init --from <repo-url>`, or generated straight
 - **Live catalogue page:** https://nuthatch-indexer.com/nests
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-## Nests
+## Graph Protocol nests
+
+These are first-class Graph Protocol replacements. Each has its own repository, with Horizon
+absorbing the broader Graph Network subgraph surface rather than creating a competing second network
+nest.
+
+| Nest | Status | Surface | Get it |
+|------|--------|---------|--------|
+| **Graph Horizon** | 🟢 available | Horizon staking and service data; expanding towards the full Network subgraph | [`init --from`](https://github.com/nightswatchhq/horizon-nest) · [horizon-nest](https://github.com/nightswatchhq/horizon-nest) |
+| **Graph Staking** | 🟡 building | HorizonStaking delegation and withdrawal history | [`init --from`](https://github.com/nightswatchhq/graph-staking-nest) · [graph-staking-nest](https://github.com/nightswatchhq/graph-staking-nest) |
+| **Graph Name Service** | 🟡 building | L2GNS subgraph publication history | [`init --from`](https://github.com/nightswatchhq/graph-gns-nest) · [graph-gns-nest](https://github.com/nightswatchhq/graph-gns-nest) |
+| **Graph TAP Escrow** | ⚪ planned | Legacy TAP escrow accounts, settlements, thaws, and signers | [graph-tap-escrow-nest](https://github.com/nightswatchhq/graph-tap-escrow-nest) |
+| **Epoch Block Oracle** | ⚪ planned | EBO DataEdge payloads and epoch-block attestations | [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
+| **QoS / Rewards-Eligibility Oracle** | ⚪ planned | QoS reports and rewards-eligibility data | [qos-reo-nest](https://github.com/nightswatchhq/qos-reo-nest) |
+
+## Other nests
 
 | Nest | Category | Tier | Status | Get it |
 |------|----------|:----:|--------|--------|
-| **Graph Horizon** | Graph Protocol | 0 · beachhead | 🟢 available | [`init --from`](https://github.com/nightswatchhq/horizon-nest) · [horizon-nest](https://github.com/nightswatchhq/horizon-nest) |
-| **Graph Staking** | Graph Protocol | 0 · beachhead | 🟡 building | [`init --from`](https://github.com/nightswatchhq/graph-staking-nest) · [graph-staking-nest](https://github.com/nightswatchhq/graph-staking-nest) |
-| **Graph Name Service** | Graph Protocol | 0 · beachhead | 🟡 building | [`init --from`](https://github.com/nightswatchhq/graph-gns-nest) · [graph-gns-nest](https://github.com/nightswatchhq/graph-gns-nest) |
-| **Epoch Block Oracle** | Graph Protocol | 0 · beachhead | ⚪ planned | — |
-| **QoS / Rewards-Eligibility Oracle** | Graph Protocol | 0 · beachhead | ⚪ planned | — |
 | **ERC-20 token** | Token | 1 | 🟢 available | `init 0xAddr` (generic) |
 | **ERC-721 / ERC-1155 NFT** | NFT | 1 | 🟢 available | `init 0xAddr` (generic) |
 | **Aave V3** | Lending | 1 | ⚪ planned | — |
