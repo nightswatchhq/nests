@@ -19,7 +19,7 @@ nest.
 | **Graph Staking** | 🟡 building | HorizonStaking delegation and withdrawal history | [`init --from`](https://github.com/nightswatchhq/graph-staking-nest) · [graph-staking-nest](https://github.com/nightswatchhq/graph-staking-nest) |
 | **Graph Name Service** | 🟡 building | L2GNS subgraph publication history | [`init --from`](https://github.com/nightswatchhq/graph-gns-nest) · [graph-gns-nest](https://github.com/nightswatchhq/graph-gns-nest) |
 | **Graph TAP Escrow** | 🟡 building | Legacy TAP escrow accounts, settlements, thaws, and signers | [`init --from`](https://github.com/nightswatchhq/graph-tap-escrow-nest) · [graph-tap-escrow-nest](https://github.com/nightswatchhq/graph-tap-escrow-nest) |
-| **Epoch Block Oracle** | ⚪ planned | EBO DataEdge payloads and epoch-block attestations | [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
+| **Epoch Block Oracle** | 🟡 building | EBO DataEdge payloads and epoch-block attestations | [`init --from`](https://github.com/nightswatchhq/epoch-block-oracle-nest) · [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
 | **QoS / Rewards-Eligibility Oracle** | ⚪ planned | QoS reports and rewards-eligibility data | [qos-reo-nest](https://github.com/nightswatchhq/qos-reo-nest) |
 
 ## Other nests

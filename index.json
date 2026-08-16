@@ -107,7 +107,7 @@
       "name": "Epoch Block Oracle",
       "category": "Graph Protocol",
       "tier": 0,
-      "status": "planned",
+      "status": "building",
       "chains": [
         "Arbitrum"
       ],
@@ -115,7 +115,8 @@
       "complexity": "medium",
       "summary": "The per-epoch canonical block for every indexed chain - the reference all indexers use to close multichain allocations consistently.",
       "events": "DataEdge calldata payloads (EventfulDataEdge emits on Arbitrum)",
-      "note": "Needs the calldata decoder (the node-independent RFC-0014 slice)."
+      "note": "Raw EventfulDataEdge payload feed is installable now. Packed-message semantic decoding and fixed-block parity remain the release gate.",
+      "repo": "https://github.com/nightswatchhq/epoch-block-oracle-nest"
     },
     {
       "id": "qos-reo",
