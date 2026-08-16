@@ -1,4 +1,4 @@
-# nuthatch nests — the index
+# nuthatch nests - the index
 
 The catalogue of prebuilt **nests** for [Nuthatch](https://github.com/nightswatchhq/nuthatch) — packaged indexing definitions (ABIs + decoded event tables + declarative views) that replace a rented subgraph with a self-hosted one.
 
