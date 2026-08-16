@@ -91,7 +91,7 @@
       "name": "Graph TAP Escrow",
       "category": "Graph Protocol",
       "tier": 0,
-      "status": "planned",
+      "status": "building",
       "chains": [
         "Arbitrum"
       ],
