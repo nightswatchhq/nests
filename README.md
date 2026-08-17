@@ -39,6 +39,7 @@ nest.
 | **Lido** | Staking / LST | 2 | ⚪ planned | — |
 | **Seaport (OpenSea)** | NFT marketplace | 2 | ⚪ planned | — |
 | **Uniswap V2 + Sushiswap** | DEX | 2 | ⚪ planned | — |
+| **ICHICHAIN** | NFT / gaming | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/ichichain-nest) · [ichichain-nest](https://github.com/nightswatchhq/ichichain-nest) |
 | **Livepeer** | Video infra | 2 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/livepeer-nest) · [livepeer-nest](https://github.com/nightswatchhq/livepeer-nest) |
 | **POA** | DAO tooling | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/poa-nest) · [poa-nest](https://github.com/nightswatchhq/poa-nest) |
 | **EigenLayer** | Restaking | 3 | ⚪ planned | — |

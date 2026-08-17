@@ -307,6 +307,22 @@
       "tier": 3
     },
     {
+      "id": "ichichain",
+      "name": "ICHICHAIN",
+      "category": "NFT / gaming",
+      "tier": 3,
+      "status": "available",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "high",
+      "summary": "ICHICHAIN/Doudo ticket, prize, series, membership, voucher, VRF, refund, redraw and collection-book event data from 13 fixed Arbitrum contracts.",
+      "events": "Transfer, NewSeries, NewTicketStatus, LastPrizeDraw, TicketPurchaseMinted, RefundClaimed, RedrawRequested, VrfRandomWordsFulfilled",
+      "note": "Seeded from Graph deployment QmXf82bXak3752bwJ1x7SWchMiEP3Z4vWCWxUJ2HY3wdhj with its pinned source ABIs. The original's four file/ipfs templates enrich off-chain content; they are intentionally outside this deterministic event-input nest.",
+      "repo": "https://github.com/nightswatchhq/ichichain-nest"
+    },
+    {
       "id": "livepeer",
       "name": "Livepeer",
       "category": "Video infra",
