@@ -22,6 +22,20 @@ nest.
 | **Epoch Block Oracle** | 🟡 building | EBO DataEdge payloads and epoch-block attestations | [`init --from`](https://github.com/nightswatchhq/epoch-block-oracle-nest) · [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
 | **QoS / Rewards-Eligibility Oracle** | ⚪ planned | QoS reports and rewards-eligibility data | [qos-reo-nest](https://github.com/nightswatchhq/qos-reo-nest) |
 
+## Ports of subgraphs
+
+These are deployment-specific ports of published Graph subgraphs. They exist because the original
+deployment was stuck, unserved, costly to query, or needed a self-hosted event-data path. A port
+states its own boundary: a source deployment is not an automatic claim of entity-for-entity parity.
+
+| Nest | Source | Status | Get it |
+|------|--------|--------|--------|
+| **DOUDOCHAIN_V2** | Graph deployment `QmXf82bXak3752bwJ1x7SWchMiEP3Z4vWCWxUJ2HY3wdhj` | 🟢 available | [`init --from`](https://github.com/nightswatchhq/doudouchain-v2-nest) · [doudouchain-v2-nest](https://github.com/nightswatchhq/doudouchain-v2-nest) |
+| **Uniswap V4 Base** | Graph deployment `Qmbsc6XQWbiv4DfLVfaNciScqYLyDWUYjWzrFBbzzmRsMB` | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-base) · [uniswap-v4-base](https://github.com/nightswatchhq/uniswap-v4-base) |
+| **SquadSwap WOW v2** | Graph deployment `QmQTCx7o6NW9SdJuyQSCYz71YLm3K43dkmtjZ38hbqvwPL` | 🟢 available | [`init --from`](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) · [squadswap-wow-v2-bsc](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) |
+| **Livepeer** | Official Livepeer subgraph, all 11 static data sources | 🟢 available | [`init --from`](https://github.com/nightswatchhq/livepeer-nest) · [livepeer-nest](https://github.com/nightswatchhq/livepeer-nest) |
+| **POA** | A deployment stuck syncing for more than a day | 🟢 available | [`init --from`](https://github.com/nightswatchhq/poa-nest) · [poa-nest](https://github.com/nightswatchhq/poa-nest) |
+
 ## Other nests
 
 | Nest | Category | Tier | Status | Get it |
@@ -31,17 +45,12 @@ nest.
 | **Aave V3** | Lending | 1 | ⚪ planned | — |
 | **ENS** | Name service | 1 | ⚪ planned | — |
 | **Uniswap V4** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-ethereum) · [uniswap-v4-ethereum](https://github.com/nightswatchhq/uniswap-v4-ethereum) |
-| **Uniswap V4 Base** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-base) · [uniswap-v4-base](https://github.com/nightswatchhq/uniswap-v4-base) |
 | **Uniswap V3** | DEX | 1 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/uniswap-v3) · [uniswap-v3](https://github.com/nightswatchhq/uniswap-v3) |
-| **SquadSwap WOW v2** | DEX | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) · [squadswap-wow-v2-bsc](https://github.com/nightswatchhq/squadswap-wow-v2-bsc) |
 | **Compound V2 + V3** | Lending | 2 | ⚪ planned | — |
 | **Curve** | DEX | 2 | ⚪ planned | — |
 | **Lido** | Staking / LST | 2 | ⚪ planned | — |
 | **Seaport (OpenSea)** | NFT marketplace | 2 | ⚪ planned | — |
 | **Uniswap V2 + Sushiswap** | DEX | 2 | ⚪ planned | — |
-| **DOUDOCHAIN_V2** | NFT / gaming | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/doudouchain-v2-nest) · [doudouchain-v2-nest](https://github.com/nightswatchhq/doudouchain-v2-nest) |
-| **Livepeer** | Video infra | 2 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/livepeer-nest) · [livepeer-nest](https://github.com/nightswatchhq/livepeer-nest) |
-| **POA** | DAO tooling | 3 | 🟢 available | [`init --from`](https://github.com/nightswatchhq/poa-nest) · [poa-nest](https://github.com/nightswatchhq/poa-nest) |
 | **EigenLayer** | Restaking | 3 | ⚪ planned | — |
 | **GMX** | Perps | 3 | ⚪ planned | — |
 | **MakerDAO / Sky** | CDP | 3 | ⚪ planned | — |

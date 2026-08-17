@@ -151,6 +151,7 @@
     },
     {
       "id": "uniswap-v4-base",
+      "catalogue_section": "subgraph-ports",
       "name": "Uniswap V4 Base",
       "category": "DEX",
       "tier": 1,
@@ -292,6 +293,7 @@
     },
     {
       "category": "DEX",
+      "catalogue_section": "subgraph-ports",
       "chains": [
         "BNB Smart Chain"
       ],
@@ -308,6 +310,7 @@
     },
     {
       "id": "doudouchain-v2",
+      "catalogue_section": "subgraph-ports",
       "name": "DOUDOCHAIN_V2",
       "category": "NFT / gaming",
       "tier": 3,
@@ -324,6 +327,7 @@
     },
     {
       "id": "livepeer",
+      "catalogue_section": "subgraph-ports",
       "name": "Livepeer",
       "category": "Video infra",
       "tier": 2,
@@ -382,6 +386,7 @@
     },
     {
       "id": "poa",
+      "catalogue_section": "subgraph-ports",
       "name": "POA",
       "category": "DAO tooling",
       "tier": 3,
