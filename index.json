@@ -71,6 +71,22 @@
       "repo": "https://github.com/nightswatchhq/graph-staking-nest"
     },
     {
+      "id": "graph-allocations",
+      "name": "Graph Allocations + Curation",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "building",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Horizon allocation lifecycle and L2 curation signal in one nest, with a `port_queue` view over both: subgraph deployments carrying signal that no indexer is serving.",
+      "events": "AllocationCreated, AllocationClosed, AllocationResized, Signalled, Burned",
+      "note": "Needs an archive RPC: curation signal is cumulative, so L2Curation is indexed from its 2022 deployment. Full backfill measured at 12 minutes and 54 MB. Filter honestly - net signal above zero returns 3,853 of 7,621 still-signalled deployments, which is a haystack; above 1,000 it is 63. Release gate: reading the top of that list by hand, and confirming that no open allocation on SubgraphService really does mean unserved, since LegacyAllocationMigrated has fired zero times.",
+      "repo": "https://github.com/nightswatchhq/graph-allocations-nest"
+    },
+    {
       "id": "graph-gns",
       "name": "Graph Name Service",
       "category": "Graph Protocol",
