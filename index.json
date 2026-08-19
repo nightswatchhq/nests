@@ -532,6 +532,23 @@
       "summary": "The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union.",
       "events": "StakeDeposited, AllocationCreated, AllocationClosed, Signalled, Burned, SubgraphPublished, EpochRun",
       "note": "Ranked #9 in the top 25 by query fees (Aug 2026) and the heaviest-to-sync subgraph on the list. Tier 0.1 of the nest catalogue calls it the crown jewel; it is also how the port queue finds deployments with signal and no indexer."
+    },
+    {
+      "id": "spookyswap",
+      "catalogue_section": "subgraph-ports",
+      "name": "SpookySwap",
+      "category": "DEX",
+      "tier": 3,
+      "status": "building",
+      "chains": [
+        "Fantom"
+      ],
+      "factory": true,
+      "complexity": "medium",
+      "summary": "SpookySwap's factory and every pair it creates on Fantom Opera: swaps, mints, burns, syncs and LP transfers.",
+      "events": "PairCreated, Swap, Mint, Burn, Sync, Transfer",
+      "note": "The first nest found by the port queue rather than chosen: its subgraph carries 21,491 GRT signalled and ZERO active indexer allocations, confirmed by the Graph Network subgraph. Ported by `init --from-subgraph` from deployment QmPJbGjkt..., factory rule inferred from the manifest. Fantom is not a shipped chain, so endpoints are in the config - both measured against the RFC-0030 bar, archive, 163,840-block window. Backfilling from block 3,795,376.",
+      "repo": "https://github.com/nightswatchhq/spookyswap-nest"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
