@@ -549,6 +549,23 @@
       "events": "PairCreated, Swap, Mint, Burn, Sync, Transfer",
       "note": "The first nest found by the port queue rather than chosen: its subgraph carries 21,491 GRT signalled and ZERO active indexer allocations, confirmed by the Graph Network subgraph. Ported by `init --from-subgraph` from deployment QmPJbGjkt..., factory rule inferred from the manifest. Fantom is not a shipped chain, so endpoints are in the config - both measured against the RFC-0030 bar, archive, 163,840-block window. Backfilling from block 3,795,376.",
       "repo": "https://github.com/nightswatchhq/spookyswap-nest"
+    },
+    {
+      "id": "peeranha",
+      "catalogue_section": "subgraph-ports",
+      "name": "Peeranha",
+      "category": "Social",
+      "tier": 3,
+      "status": "available",
+      "chains": [
+        "Polygon"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Peeranha's community-driven Q&A protocol on Polygon: users, communities, tags, posts, replies and reputation events across five contracts.",
+      "events": "CommunityCreated, TagCreated, PostCreated, ReplyCreated, UserCreated, CommunityUpdated",
+      "note": "Found by the port queue, not chosen. The Graph's gateway cannot serve this subgraph at all - asked directly it answers `subgraph not found: no allocations` - while 10,673 GRT sits signalled on deployment QmW4Vo3ZY... Backfilled 62.7M Polygon blocks from 29,595,889. Needs an archive endpoint via --rpc: the keyless Polygon endpoint is not archive, and the free archive one caps getLogs at 80 blocks.",
+      "repo": "https://github.com/nightswatchhq/peeranha-nest"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
