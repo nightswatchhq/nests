@@ -156,13 +156,15 @@
       "tier": 1,
       "status": "available",
       "chains": [
-        "Ethereum"
+        "Ethereum",
+        "BNB Smart Chain",
+        "Polygon"
       ],
       "factory": false,
       "complexity": "low",
       "summary": "Concentrated liquidity in a singleton - every pool lives inside one PoolManager, so there is no factory and no pool contracts. Hook adoption, per-pool activity and liquidity.",
       "events": "Initialize, Swap, ModifyLiquidity, Donate, Transfer, ProtocolFeeUpdated",
-      "note": "Structurally the SIMPLEST nest in the catalogue - one static contract, no templates, no factory rules. The work is volume, not config: ~17 events/block, ~68M events for full history from block 21688329 (~7 h at a measured 2,785 ev/s). Ships with a recent-history quickstart. No USD pricing (needs a token list; the declarative core makes no contract calls).",
+      "note": "Structurally the SIMPLEST nest in the catalogue - one static contract, no templates, no factory rules. The work is volume, not config: ~17 events/block, ~68M events for full history from block 21688329 (~7 h at a measured 2,785 ev/s). Ships with a recent-history quickstart. No USD pricing (needs a token list; the declarative core makes no contract calls). The top 25 ranks uniswap-v4 deployments on BNB (#5) and Polygon (#18) as well; both need a `chains.rs` entry before `init` works without `--rpc`.",
       "repo": "https://github.com/nightswatchhq/uniswap-v4-ethereum"
     },
     {
@@ -191,13 +193,16 @@
       "chains": [
         "Arbitrum",
         "Ethereum",
-        "Base"
+        "Base",
+        "BNB Smart Chain",
+        "Polygon",
+        "Optimism"
       ],
       "factory": true,
       "complexity": "high",
       "summary": "Concentrated-liquidity DEX - every pool discovered from the factory, with swaps, prices, and gross volume. The showcase for factory discovery: one rule tracks every pool, no per-pool config.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
-      "note": "Configured for Arbitrum; the factory address is identical on every chain, so re-pointing is a two-line edit. Token decimals / USD pricing need a vendored token list (the declarative core makes no contract calls).",
+      "note": "Configured for Arbitrum; the factory address is identical on every chain, so re-pointing is a two-line edit. Token decimals / USD pricing need a vendored token list (the declarative core makes no contract calls). The top 25 ranks uniswap-v3 deployments on BNB (#3), Polygon (#10) and Optimism (#15) as well; those three need a `chains.rs` entry before `init` works without `--rpc`.",
       "repo": "https://github.com/nightswatchhq/uniswap-v3"
     },
     {
@@ -416,6 +421,117 @@
       "events": "OrgDeployed, ContractRegistered, TransferSingle, TaskCreated, TaskCompleted, NewProposal, VoteCast, UsageIncreased",
       "note": "19 contracts and 207 tables across 42.5M Arbitrum blocks - 848 events, sealed in 59s. The subgraph stalls on 10 file/ipfs data sources and 19 dynamic templates; this nest indexes metadata hashes instead of fetching CIDs, keeping the indexing path offline and deterministic.",
       "repo": "https://github.com/nightswatchhq/poa-nest"
+    },
+    {
+      "id": "aerodrome",
+      "catalogue_section": "subgraph-ports",
+      "name": "Aerodrome",
+      "category": "DEX",
+      "tier": 1,
+      "status": "planned",
+      "chains": [
+        "Base"
+      ],
+      "factory": true,
+      "complexity": "high",
+      "summary": "Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25.",
+      "events": "PoolCreated, Swap, Mint, Burn, Voted, GaugeCreated, NotifyReward",
+      "note": "Ranked #6 in the network's top 25 by query fees (Aug 2026). Base is already a first-class chain, so this is nest work rather than chain work."
+    },
+    {
+      "id": "pancakeswap-v3-bsc",
+      "catalogue_section": "subgraph-ports",
+      "name": "PancakeSwap V3",
+      "category": "DEX",
+      "tier": 2,
+      "status": "planned",
+      "chains": [
+        "BNB Smart Chain"
+      ],
+      "factory": true,
+      "complexity": "high",
+      "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain - the same factory and tick shape as Uniswap V3, which the existing uniswap-v3 nest already models.",
+      "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #22."
+    },
+    {
+      "id": "omen-gnosis",
+      "catalogue_section": "subgraph-ports",
+      "name": "Omen",
+      "category": "Prediction market",
+      "tier": 3,
+      "status": "planned",
+      "chains": [
+        "Gnosis"
+      ],
+      "factory": true,
+      "complexity": "medium",
+      "summary": "Omen prediction markets on Gnosis: fixed-product market makers, positions and trades.",
+      "events": "FPMMCreated, FPMMBuy, FPMMSell, FPMMFundingAdded, FPMMFundingRemoved",
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #19, and notable for the highest fee-per-query figure in the top 25 by a wide margin."
+    },
+    {
+      "id": "conditional-tokens-gnosis",
+      "catalogue_section": "subgraph-ports",
+      "name": "Conditional Tokens",
+      "category": "Prediction market",
+      "tier": 3,
+      "status": "planned",
+      "chains": [
+        "Gnosis"
+      ],
+      "factory": false,
+      "complexity": "medium",
+      "summary": "Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on.",
+      "events": "ConditionPreparation, ConditionResolution, PositionSplit, PositionsMerge, PayoutRedemption",
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #23."
+    },
+    {
+      "id": "forsage-bsc",
+      "catalogue_section": "subgraph-ports",
+      "name": "Forsage x2",
+      "category": "Other",
+      "tier": 3,
+      "status": "planned",
+      "chains": [
+        "BNB Smart Chain"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest.",
+      "events": "Registration, Upgrade, NewUserPlace, MissedEthReceive, SentExtraEthDividends",
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #12."
+    },
+    {
+      "id": "request-payments",
+      "catalogue_section": "subgraph-ports",
+      "name": "Request Payments",
+      "category": "Payments",
+      "tier": 3,
+      "status": "planned",
+      "chains": [
+        "Ethereum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement.",
+      "events": "TransferWithReferenceAndFee, TransferWithReference",
+      "note": "Ranked #20 in the top 25 by query fees (Aug 2026). The ranked deployment is on Sepolia; the mainnet contracts are the ones worth indexing."
+    },
+    {
+      "id": "graph-network",
+      "name": "Graph Network",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "planned",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "high",
+      "summary": "The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union.",
+      "events": "StakeDeposited, AllocationCreated, AllocationClosed, Signalled, Burned, SubgraphPublished, EpochRun",
+      "note": "Ranked #9 in the top 25 by query fees (Aug 2026) and the heaviest-to-sync subgraph on the list. Tier 0.1 of the nest catalogue calls it the crown jewel; it is also how the port queue finds deployments with signal and no indexer."
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
