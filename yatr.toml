@@ -1,0 +1,69 @@
+# yatr - https://github.com/cargopete/yatr
+#
+# Task names are the same across every nightswatchhq repo, so `yatr ci` means
+# the same thing wherever you are. Note that `ci` is deliberately not called
+# `check`: `yatr check` is a builtin that validates this file, and it shadows
+# any task of that name without warning.
+
+# index.json is the canonical list of nests and the website builds from it, so
+# the tasks here are about that file being true rather than about a build.
+
+[settings]
+cache = true
+
+[tasks.index]
+desc = "Fail if index.json is not valid JSON"
+run = ["python3 -m json.tool index.json"]
+sources = ["index.json"]
+
+[tasks.readme]
+desc = "Regenerate README.md from index.json"
+run = ["python3 scripts/render-readme.py"]
+sources = ["index.json", "scripts/render-readme.py"]
+no_cache = true
+
+[tasks.drift]
+desc = "Fail if README.md is stale against index.json"
+shell = true
+sources = ["index.json", "README.md", "scripts/render-readme.py"]
+run = ["python3 scripts/render-readme.py && git diff --exit-code -- README.md"]
+
+[tasks.repos]
+desc = "Fail if an available nest offers neither a repo to clone nor a command to run"
+shell = true
+sources = ["index.json"]
+run = ['''
+python3 - <<'PY'
+import json, sys
+d = json.load(open("index.json"))
+bad = [n["id"] for n in d["nests"]
+       if n.get("status") == "available"
+       and not n.get("repo") and not n.get("command")]
+if bad:
+    print("available, but no repo and no command:", ", ".join(bad)); sys.exit(1)
+avail = sum(1 for n in d["nests"] if n.get("status") == "available")
+print(f"{len(d['nests'])} nests, {avail} available, each reachable")
+PY
+''']
+
+[tasks.links]
+desc = "Fail if a relative markdown link points at a file that is not there"
+shell = true
+sources = ["**/*.md"]
+run = ['''
+missing=0
+for f in $(git ls-files '*.md'); do
+  d=$(dirname "$f")
+  for l in $(grep -oE '\]\([^)]+\)' "$f" | sed 's/^](//;s/)$//' | grep -vE '^(https?:|mailto:|#|<)' | sed 's/#.*$//'); do
+    [ -z "$l" ] && continue
+    if [ ! -e "$d/$l" ]; then echo "broken: $f -> $l"; missing=$((missing+1)); fi
+  done
+done
+if [ "$missing" -ne 0 ]; then echo "$missing broken relative link(s)"; exit 1; fi
+echo "all relative markdown links resolve"
+''']
+
+[tasks.ci]
+desc = "What CI runs: index, repos, drift, links"
+depends = ["index", "repos", "drift", "links"]
+run = []
