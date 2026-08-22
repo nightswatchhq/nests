@@ -145,9 +145,9 @@
       ],
       "factory": false,
       "complexity": "high",
-      "summary": "Indexer quality-of-service and reward eligibility - off-chain gateway telemetry posted on-chain.",
-      "events": "Rewards Eligibility Oracle postings (GIP-0079)",
-      "note": "On-chain shape still consolidating post-Horizon - a watch-and-follow target."
+      "summary": "Indexer reward eligibility (GIP-0079) and gateway quality-of-service. Neither is indexable yet: the Rewards Eligibility Oracle is not deployed, and QoS telemetry is published off-chain by the gateway rather than by a contract.",
+      "events": "none deployed yet (GIP-0079 would add Rewards Eligibility Oracle postings)",
+      "note": "Watch-and-follow. Probed 2026-08-22 rather than assumed: `rewardsEligibilityOracle()` reverts on both SubgraphService and RewardsManager, and the Graph Controller (0x0a8491544221dd212964fbb96487467291b2C97e) has no `RewardsEligibilityOracle` and no `QoSOracle` registered, while RewardsManager, Curation, EpochManager, Staking and GraphToken all resolve. The QoS half may never be on-chain at all. The one adjacent contract that does exist is built and published as `subgraph-availability-oracle`; it is a different dataset and does not close this entry. Re-check when GIP-0079 deploys."
     },
     {
       "id": "uniswap-v4",
