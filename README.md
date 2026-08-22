@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**42 nests**: 33 available, 6 building, 1 planned, 2 blocked.
+**43 nests**: 34 available, 6 building, 0 planned, 3 blocked.
 
 ## Graph Protocol nests
 
@@ -32,9 +32,10 @@ rather than creating a competing second network nest.
 | **Graph Name Service** | 🟡 building | Arbitrum | L2GNS subgraph publication history, including the event stream behind Graph developer-activity metrics. | [`init --from`](https://github.com/nightswatchhq/graph-gns-nest) · [graph-gns-nest](https://github.com/nightswatchhq/graph-gns-nest) |
 | **Graph TAP Escrow** | 🟡 building | Arbitrum | Legacy TAP Escrow account funding, settlement, thaw, and authorised-signer event history. | [`init --from`](https://github.com/nightswatchhq/graph-tap-escrow-nest) · [graph-tap-escrow-nest](https://github.com/nightswatchhq/graph-tap-escrow-nest) |
 | **Epoch Block Oracle** | 🟡 building | Arbitrum | The per-epoch canonical block for every indexed chain - the reference all indexers use to close multichain allocations consistently. | [`init --from`](https://github.com/nightswatchhq/epoch-block-oracle-nest) · [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
-| **QoS / Rewards-Eligibility Oracle** | ⚪ planned | Arbitrum | Indexer reward eligibility (GIP-0079) and gateway quality-of-service. Neither is indexable yet: the Rewards Eligibility Oracle is not deployed, and QoS telemetry is published off-chain by the gateway rather than by a contract. | - |
+| **Gateway QoS telemetry** | 🔴 blocked | Arbitrum | Indexer quality-of-service as the gateway measures it. Not reachable by indexing: the gateway publishes this off-chain and no contract emits it. | - |
 | **Graph Network** | 🟢 available | Arbitrum | The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union. | [`init --from`](https://github.com/nightswatchhq/graph-network) · [graph-network](https://github.com/nightswatchhq/graph-network) |
 | **Subgraph Availability Oracle** | 🟢 available | Arbitrum | The availability vote behind indexing rewards: oracles vote on whether a subgraph deployment is available, and a denied deployment stops accruing rewards. | [`init --from`](https://github.com/nightswatchhq/subgraph-availability-oracle) · [subgraph-availability-oracle](https://github.com/nightswatchhq/subgraph-availability-oracle) |
+| **Rewards Eligibility Oracle** | 🟢 available | Arbitrum | GIP-0088's Rewards Eligibility Oracle: authorised oracles mark indexers eligible to receive indexing rewards. Deployed and emitting, though not yet wired into the rewards flow. | [`init --from`](https://github.com/nightswatchhq/rewards-eligibility-oracle) · [rewards-eligibility-oracle](https://github.com/nightswatchhq/rewards-eligibility-oracle) |
 
 ## Ports of subgraphs
 
