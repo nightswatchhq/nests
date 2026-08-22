@@ -676,6 +676,22 @@
       "events": "Transfer, Approval",
       "note": "Stands in for a makerdao nest, which is blocked: the Vat's only event is anonymous, so a topic0-keyed decode yields zero tables. See the makerdao entry.",
       "repo": "https://github.com/nightswatchhq/makerdao-dai"
+    },
+    {
+      "id": "subgraph-availability-oracle",
+      "name": "Subgraph Availability Oracle",
+      "category": "Graph Protocol",
+      "tier": 0,
+      "status": "available",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "The availability vote behind indexing rewards: oracles vote on whether a subgraph deployment is available, and a denied deployment stops accruing rewards.",
+      "events": "OracleVote, OracleSet, VoteTimeLimitSet",
+      "note": "Found via `RewardsManager.subgraphAvailabilityOracle()`. NOT the qos-reo entry and does not replace it: GIP-0079's Rewards Eligibility Oracle is undeployed (`rewardsEligibilityOracle()` reverts on both SubgraphService and RewardsManager, probed 2026-08-22) and gateway QoS telemetry is off-chain. This is the part of that neighbourhood that exists on-chain today. Ships authored views: 1,038 raw votes collapse to 13 current positions across 6 deployments and 4 oracles.",
+      "repo": "https://github.com/nightswatchhq/subgraph-availability-oracle"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."

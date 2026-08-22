@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**41 nests**: 32 available, 6 building, 1 planned, 2 blocked.
+**42 nests**: 33 available, 6 building, 1 planned, 2 blocked.
 
 ## Graph Protocol nests
 
@@ -34,6 +34,7 @@ rather than creating a competing second network nest.
 | **Epoch Block Oracle** | 🟡 building | Arbitrum | The per-epoch canonical block for every indexed chain - the reference all indexers use to close multichain allocations consistently. | [`init --from`](https://github.com/nightswatchhq/epoch-block-oracle-nest) · [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
 | **QoS / Rewards-Eligibility Oracle** | ⚪ planned | Arbitrum | Indexer quality-of-service and reward eligibility - off-chain gateway telemetry posted on-chain. | - |
 | **Graph Network** | 🟢 available | Arbitrum | The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union. | [`init --from`](https://github.com/nightswatchhq/graph-network) · [graph-network](https://github.com/nightswatchhq/graph-network) |
+| **Subgraph Availability Oracle** | 🟢 available | Arbitrum | The availability vote behind indexing rewards: oracles vote on whether a subgraph deployment is available, and a denied deployment stops accruing rewards. | [`init --from`](https://github.com/nightswatchhq/subgraph-availability-oracle) · [subgraph-availability-oracle](https://github.com/nightswatchhq/subgraph-availability-oracle) |
 
 ## Ports of subgraphs
 
