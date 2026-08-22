@@ -210,53 +210,52 @@
       "name": "Aave V3",
       "category": "Lending",
       "tier": 1,
-      "status": "planned",
+      "status": "available",
       "chains": [
-        "Ethereum",
-        "Arbitrum",
-        "Base"
+        "Ethereum"
       ],
       "factory": false,
       "complexity": "medium",
       "summary": "The lending flagship - supplies, borrows, repayments, liquidations and rates across 20+ chains.",
-      "events": "Supply, Borrow, Repay, LiquidationCall, ReserveUsedAsCollateral"
+      "events": "Supply, Borrow, Repay, LiquidationCall, ReserveUsedAsCollateral",
+      "repo": "https://github.com/nightswatchhq/aave-v3"
     },
     {
       "id": "ens",
       "name": "ENS",
       "category": "Name service",
       "tier": 1,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum"
       ],
       "factory": false,
       "complexity": "medium",
       "summary": "The archetypal name-service index - registrations, expiries, resolvers and records across the registry and registrar.",
-      "events": "NameRegistered, NameRenewed, Transfer, NewResolver"
+      "events": "NameRegistered, NameRenewed, Transfer, NewResolver",
+      "repo": "https://github.com/nightswatchhq/ens"
     },
     {
       "id": "uniswap-v2",
       "name": "Uniswap V2 + Sushiswap",
       "category": "DEX",
       "tier": 2,
-      "status": "planned",
+      "status": "available",
       "chains": [
-        "Ethereum",
-        "Arbitrum",
-        "Base"
+        "Ethereum"
       ],
       "factory": true,
       "complexity": "medium",
       "summary": "Constant-product AMM - the simpler Uniswap, and the template Sushiswap reuses. One nest, two protocols.",
-      "events": "PairCreated, Swap, Mint, Burn, Sync"
+      "events": "PairCreated, Swap, Mint, Burn, Sync",
+      "repo": "https://github.com/nightswatchhq/uniswap-v2"
     },
     {
       "id": "compound",
       "name": "Compound V2 + V3",
       "category": "Lending",
       "tier": 2,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum",
         "Arbitrum",
@@ -265,28 +264,30 @@
       "factory": false,
       "complexity": "medium",
       "summary": "cToken and Comet money-markets - supply, borrow, repayment and liquidation.",
-      "events": "Mint, Redeem, Borrow, RepayBorrow, LiquidateBorrow"
+      "events": "Mint, Redeem, Borrow, RepayBorrow, LiquidateBorrow",
+      "repo": "https://github.com/nightswatchhq/compound"
     },
     {
       "id": "lido",
       "name": "Lido",
       "category": "Staking / LST",
       "tier": 2,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum"
       ],
       "factory": false,
       "complexity": "medium",
       "summary": "The liquid-staking leader - stETH/wstETH deposits, withdrawals, rebases and oracle reporting.",
-      "events": "Submitted, Transfer, TokenRebased, WithdrawalRequested"
+      "events": "Submitted, Transfer, TokenRebased, WithdrawalRequested",
+      "repo": "https://github.com/nightswatchhq/lido"
     },
     {
       "id": "seaport",
       "name": "Seaport (OpenSea)",
       "category": "NFT marketplace",
       "tier": 2,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum",
         "Arbitrum",
@@ -295,7 +296,8 @@
       "factory": false,
       "complexity": "medium",
       "summary": "The protocol behind the largest NFT marketplace - order fulfilment and cancellation.",
-      "events": "OrderFulfilled, OrderCancelled, CounterIncremented"
+      "events": "OrderFulfilled, OrderCancelled, CounterIncremented",
+      "repo": "https://github.com/nightswatchhq/seaport"
     },
     {
       "id": "curve",
@@ -369,21 +371,22 @@
       "name": "EigenLayer",
       "category": "Restaking",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum"
       ],
       "factory": false,
       "complexity": "medium",
       "summary": "Restaking - operator registration, staker delegation, deposits and withdrawals.",
-      "events": "OperatorRegistered, StakerDelegated, Deposit, WithdrawalQueued"
+      "events": "OperatorRegistered, StakerDelegated, Deposit, WithdrawalQueued",
+      "repo": "https://github.com/nightswatchhq/eigenlayer"
     },
     {
       "id": "gmx",
       "name": "GMX",
       "category": "Perps",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Arbitrum"
       ],
@@ -391,7 +394,8 @@
       "complexity": "high",
       "summary": "Perpetuals - position lifecycle, PnL and liquidations.",
       "events": "IncreasePosition, DecreasePosition, LiquidatePosition",
-      "note": "The V1 Vault is dormant - 10 logs in 300,000 Arbitrum blocks, 164 in 3,000,000 (measured 2026-08-22). A nest on it decodes correctly and indexes almost nothing. V2 routes everything through a generic EventLog/EventLog1/EventLog2 emitter, which yields opaque encoded blobs rather than typed tables."
+      "note": "The V1 Vault is dormant - 10 logs in 300,000 Arbitrum blocks, 164 in 3,000,000 (measured 2026-08-22). A nest on it decodes correctly and indexes almost nothing. V2 routes everything through a generic EventLog/EventLog1/EventLog2 emitter, which yields opaque encoded blobs rather than typed tables.",
+      "repo": "https://github.com/nightswatchhq/gmx"
     },
     {
       "id": "makerdao",
@@ -431,7 +435,7 @@
       "name": "Aerodrome",
       "category": "DEX",
       "tier": 1,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Base"
       ],
@@ -439,7 +443,8 @@
       "complexity": "high",
       "summary": "Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25.",
       "events": "PoolCreated, Swap, Mint, Burn, Voted, GaugeCreated, NotifyReward",
-      "note": "Ranked #6 in the network's top 25 by query fees (Aug 2026). Base is already a first-class chain, so this is nest work rather than chain work."
+      "note": "Ranked #6 in the network's top 25 by query fees (Aug 2026). Base is already a first-class chain, so this is nest work rather than chain work.",
+      "repo": "https://github.com/nightswatchhq/aerodrome"
     },
     {
       "id": "pancakeswap-v3-bsc",
@@ -447,7 +452,7 @@
       "name": "PancakeSwap V3",
       "category": "DEX",
       "tier": 2,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "BNB Smart Chain"
       ],
@@ -455,7 +460,8 @@
       "complexity": "high",
       "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
-      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026), #22. NOT a config change from uniswap-v3, tested 2026-08-22: reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. Verified on-chain - the Uniswap-shaped topic0 returned 1,111 logs over 300 BSC blocks and the nine-param one 7,025, and `factory()` on an emitter of each resolves to a different factory. BSC has been in `chains.rs` since before this note was written; `init --chain bsc` needs no `--rpc`."
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026), #22. NOT a config change from uniswap-v3, tested 2026-08-22: reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. Verified on-chain - the Uniswap-shaped topic0 returned 1,111 logs over 300 BSC blocks and the nine-param one 7,025, and `factory()` on an emitter of each resolves to a different factory. BSC has been in `chains.rs` since before this note was written; `init --chain bsc` needs no `--rpc`.",
+      "repo": "https://github.com/nightswatchhq/pancakeswap-v3-bsc"
     },
     {
       "id": "omen-gnosis",
@@ -463,7 +469,7 @@
       "name": "Omen",
       "category": "Prediction market",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Gnosis"
       ],
@@ -471,7 +477,8 @@
       "complexity": "medium",
       "summary": "Omen prediction markets on Gnosis: fixed-product market makers, positions and trades.",
       "events": "FPMMCreated, FPMMBuy, FPMMSell, FPMMFundingAdded, FPMMFundingRemoved",
-      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #19, and notable for the highest fee-per-query figure in the top 25 by a wide margin."
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #19, and notable for the highest fee-per-query figure in the top 25 by a wide margin.",
+      "repo": "https://github.com/nightswatchhq/omen-gnosis"
     },
     {
       "id": "conditional-tokens-gnosis",
@@ -479,7 +486,7 @@
       "name": "Conditional Tokens",
       "category": "Prediction market",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Gnosis"
       ],
@@ -487,7 +494,8 @@
       "complexity": "medium",
       "summary": "Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on.",
       "events": "ConditionPreparation, ConditionResolution, PositionSplit, PositionsMerge, PayoutRedemption",
-      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #23."
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #23.",
+      "repo": "https://github.com/nightswatchhq/conditional-tokens-gnosis"
     },
     {
       "id": "forsage-bsc",
@@ -495,7 +503,7 @@
       "name": "Forsage x2",
       "category": "Other",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "BNB Smart Chain"
       ],
@@ -503,7 +511,8 @@
       "complexity": "low",
       "summary": "Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest.",
       "events": "Registration, Upgrade, NewUserPlace, MissedEthReceive, SentExtraEthDividends",
-      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #12."
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #12.",
+      "repo": "https://github.com/nightswatchhq/forsage-bsc"
     },
     {
       "id": "request-payments",
@@ -511,7 +520,7 @@
       "name": "Request Payments",
       "category": "Payments",
       "tier": 3,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Ethereum"
       ],
@@ -519,14 +528,15 @@
       "complexity": "low",
       "summary": "Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement.",
       "events": "TransferWithReferenceAndFee, TransferWithReference",
-      "note": "Ranked #20 in the top 25 by query fees (Aug 2026). The ranked deployment is on Sepolia; the mainnet contracts are the ones worth indexing."
+      "note": "Ranked #20 in the top 25 by query fees (Aug 2026). The ranked deployment is on Sepolia; the mainnet contracts are the ones worth indexing.",
+      "repo": "https://github.com/nightswatchhq/request-payments"
     },
     {
       "id": "graph-network",
       "name": "Graph Network",
       "category": "Graph Protocol",
       "tier": 0,
-      "status": "planned",
+      "status": "available",
       "chains": [
         "Arbitrum"
       ],
@@ -534,7 +544,8 @@
       "complexity": "high",
       "summary": "The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union.",
       "events": "StakeDeposited, AllocationCreated, AllocationClosed, Signalled, Burned, SubgraphPublished, EpochRun",
-      "note": "Ranked #9 in the top 25 by query fees (Aug 2026) and the heaviest-to-sync subgraph on the list. Tier 0.1 of the nest catalogue calls it the crown jewel; it is also how the port queue finds deployments with signal and no indexer."
+      "note": "Ranked #9 in the top 25 by query fees (Aug 2026) and the heaviest-to-sync subgraph on the list. Tier 0.1 of the nest catalogue calls it the crown jewel; it is also how the port queue finds deployments with signal and no indexer.",
+      "repo": "https://github.com/nightswatchhq/graph-network"
     },
     {
       "id": "spookyswap",
@@ -569,6 +580,102 @@
       "events": "CommunityCreated, TagCreated, PostCreated, ReplyCreated, UserCreated, CommunityUpdated",
       "note": "Found by the port queue, not chosen. The Graph's gateway cannot serve this subgraph at all - asked directly it answers `subgraph not found: no allocations` - while 10,673 GRT sits signalled on deployment QmW4Vo3ZY... Backfilled 62.7M Polygon blocks from 29,595,889. Needs an archive endpoint via --rpc: the keyless Polygon endpoint is not archive, and the free archive one caps getLogs at 80 blocks.",
       "repo": "https://github.com/nightswatchhq/peeranha-nest"
+    },
+    {
+      "id": "uniswap-v2-arbitrum",
+      "name": "Uniswap V2 (Arbitrum)",
+      "category": "DEX",
+      "tier": 2,
+      "status": "available",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": true,
+      "complexity": "medium",
+      "summary": "Uniswap V2's Arbitrum deployment: every pair the factory creates, and the swaps, mints, burns and syncs on them.",
+      "events": "PairCreated, Swap, Mint, Burn, Sync",
+      "note": "Same ABIs as the Ethereum nest, six config values changed. Quiet chain: 6 events in the 400,000-block verification window, though the factory has 8,775 pairs historically.",
+      "repo": "https://github.com/nightswatchhq/uniswap-v2-arbitrum"
+    },
+    {
+      "id": "uniswap-v2-base",
+      "name": "Uniswap V2 (Base)",
+      "category": "DEX",
+      "tier": 2,
+      "status": "available",
+      "chains": [
+        "Base"
+      ],
+      "factory": true,
+      "complexity": "medium",
+      "summary": "Uniswap V2's Base deployment. The busiest of the three, and the one that crosses the factory filter flip.",
+      "events": "PairCreated, Swap, Mint, Burn, Sync",
+      "note": "Verified over 219,411 blocks: 3,043 pairs, 139,505 swaps, 173,065 events. Crossed the RFC-0009 filter flip at 798 children with decoding intact.",
+      "repo": "https://github.com/nightswatchhq/uniswap-v2-base"
+    },
+    {
+      "id": "aave-v3-arbitrum",
+      "name": "Aave V3 (Arbitrum)",
+      "category": "Lending",
+      "tier": 1,
+      "status": "available",
+      "chains": [
+        "Arbitrum"
+      ],
+      "factory": false,
+      "complexity": "medium",
+      "summary": "Aave V3's Arbitrum Pool: supplies, borrows, repayments, liquidations, flash loans and reserve updates.",
+      "events": "Supply, Borrow, Repay, Withdraw, LiquidationCall, FlashLoan, ReserveDataUpdated",
+      "note": "Event set is identical to the Ethereum deployment's despite different implementation bytecode, so the nest is a config change.",
+      "repo": "https://github.com/nightswatchhq/aave-v3-arbitrum"
+    },
+    {
+      "id": "aave-v3-base",
+      "name": "Aave V3 (Base)",
+      "category": "Lending",
+      "tier": 1,
+      "status": "available",
+      "chains": [
+        "Base"
+      ],
+      "factory": false,
+      "complexity": "medium",
+      "summary": "Aave V3's Base Pool, same surface as the Ethereum and Arbitrum nests.",
+      "events": "Supply, Borrow, Repay, Withdraw, LiquidationCall, FlashLoan, ReserveDataUpdated",
+      "note": "Event set identical to Ethereum's. Verified over 299,358 blocks: 122,749 events.",
+      "repo": "https://github.com/nightswatchhq/aave-v3-base"
+    },
+    {
+      "id": "velodrome",
+      "name": "Velodrome",
+      "category": "DEX",
+      "tier": 2,
+      "status": "available",
+      "chains": [
+        "Optimism"
+      ],
+      "factory": true,
+      "complexity": "high",
+      "summary": "Velodrome's ve(3,3) DEX on Optimism: pools, swaps and the fee events that make ve(3,3) different from a constant-product AMM.",
+      "events": "PoolCreated, Swap, Mint, Burn, Sync, Fees, Claim",
+      "note": "This nest is `aerodrome` with six values changed, and the ABIs are byte-identical: Aerodrome is a true code fork of Velodrome. Contrast pancakeswap-v3-bsc, where the same exercise against uniswap-v3 fails because PancakeSwap reimplemented the pool. A fork ports; a reimplementation does not.",
+      "repo": "https://github.com/nightswatchhq/velodrome"
+    },
+    {
+      "id": "makerdao-dai",
+      "name": "DAI token",
+      "category": "CDP",
+      "tier": 3,
+      "status": "available",
+      "chains": [
+        "Ethereum"
+      ],
+      "factory": false,
+      "complexity": "trivial",
+      "summary": "The DAI token's transfers and approvals.",
+      "events": "Transfer, Approval",
+      "note": "Stands in for a makerdao nest, which is blocked: the Vat's only event is anonymous, so a topic0-keyed decode yields zero tables. See the makerdao entry.",
+      "repo": "https://github.com/nightswatchhq/makerdao-dai"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."

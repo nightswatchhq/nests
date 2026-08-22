@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**35 nests**: 11 available, 6 building, 16 planned, 2 blocked.
+**41 nests**: 32 available, 6 building, 1 planned, 2 blocked.
 
 ## Graph Protocol nests
 
@@ -33,7 +33,7 @@ rather than creating a competing second network nest.
 | **Graph TAP Escrow** | 🟡 building | Arbitrum | Legacy TAP Escrow account funding, settlement, thaw, and authorised-signer event history. | [`init --from`](https://github.com/nightswatchhq/graph-tap-escrow-nest) · [graph-tap-escrow-nest](https://github.com/nightswatchhq/graph-tap-escrow-nest) |
 | **Epoch Block Oracle** | 🟡 building | Arbitrum | The per-epoch canonical block for every indexed chain - the reference all indexers use to close multichain allocations consistently. | [`init --from`](https://github.com/nightswatchhq/epoch-block-oracle-nest) · [epoch-block-oracle-nest](https://github.com/nightswatchhq/epoch-block-oracle-nest) |
 | **QoS / Rewards-Eligibility Oracle** | ⚪ planned | Arbitrum | Indexer quality-of-service and reward eligibility - off-chain gateway telemetry posted on-chain. | - |
-| **Graph Network** | ⚪ planned | Arbitrum | The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union. | - |
+| **Graph Network** | 🟢 available | Arbitrum | The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union. | [`init --from`](https://github.com/nightswatchhq/graph-network) · [graph-network](https://github.com/nightswatchhq/graph-network) |
 
 ## Ports of subgraphs
 
@@ -48,12 +48,12 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **DOUDOCHAIN_V2** | 🟢 available | Arbitrum | DOUDOCHAIN_V2 ticket, prize, series, membership, voucher, VRF, refund, redraw and collection-book event data from 13 fixed Arbitrum contracts. | [`init --from`](https://github.com/nightswatchhq/doudouchain-v2-nest) · [doudouchain-v2-nest](https://github.com/nightswatchhq/doudouchain-v2-nest) |
 | **Livepeer** | 🟢 available | Arbitrum | The Livepeer protocol - transcoders, rounds, delegators, tickets and governance polls. Built for feature parity with the official Livepeer subgraph. | [`init --from`](https://github.com/nightswatchhq/livepeer-nest) · [livepeer-nest](https://github.com/nightswatchhq/livepeer-nest) |
 | **POA** | 🟢 available | Arbitrum | A full DAO-tooling stack - org deployment, Hats-based roles, tasks and bounties, hybrid + direct-democracy voting, and a gas paymaster. Replaces a subgraph that had been stuck syncing for over a day. | [`init --from`](https://github.com/nightswatchhq/poa-nest) · [poa-nest](https://github.com/nightswatchhq/poa-nest) |
-| **Aerodrome** | ⚪ planned | Base | Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25. | - |
-| **PancakeSwap V3** | ⚪ planned | BNB Smart Chain | PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0. | - |
-| **Omen** | ⚪ planned | Gnosis | Omen prediction markets on Gnosis: fixed-product market makers, positions and trades. | - |
-| **Conditional Tokens** | ⚪ planned | Gnosis | Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on. | - |
-| **Forsage x2** | ⚪ planned | BNB Smart Chain | Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest. | - |
-| **Request Payments** | ⚪ planned | Ethereum | Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement. | - |
+| **Aerodrome** | 🟢 available | Base | Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25. | [`init --from`](https://github.com/nightswatchhq/aerodrome) · [aerodrome](https://github.com/nightswatchhq/aerodrome) |
+| **PancakeSwap V3** | 🟢 available | BNB Smart Chain | PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0. | [`init --from`](https://github.com/nightswatchhq/pancakeswap-v3-bsc) · [pancakeswap-v3-bsc](https://github.com/nightswatchhq/pancakeswap-v3-bsc) |
+| **Omen** | 🟢 available | Gnosis | Omen prediction markets on Gnosis: fixed-product market makers, positions and trades. | [`init --from`](https://github.com/nightswatchhq/omen-gnosis) · [omen-gnosis](https://github.com/nightswatchhq/omen-gnosis) |
+| **Conditional Tokens** | 🟢 available | Gnosis | Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on. | [`init --from`](https://github.com/nightswatchhq/conditional-tokens-gnosis) · [conditional-tokens-gnosis](https://github.com/nightswatchhq/conditional-tokens-gnosis) |
+| **Forsage x2** | 🟢 available | BNB Smart Chain | Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest. | [`init --from`](https://github.com/nightswatchhq/forsage-bsc) · [forsage-bsc](https://github.com/nightswatchhq/forsage-bsc) |
+| **Request Payments** | 🟢 available | Ethereum | Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement. | [`init --from`](https://github.com/nightswatchhq/request-payments) · [request-payments](https://github.com/nightswatchhq/request-payments) |
 | **SpookySwap** | 🟡 building | Fantom | SpookySwap's factory and every pair it creates on Fantom Opera: swaps, mints, burns, syncs and LP transfers. | [`init --from`](https://github.com/nightswatchhq/spookyswap-nest) · [spookyswap-nest](https://github.com/nightswatchhq/spookyswap-nest) |
 | **Peeranha** | 🟢 available | Polygon | Peeranha's community-driven Q&A protocol on Polygon: users, communities, tags, posts, replies and reputation events across five contracts. | [`init --from`](https://github.com/nightswatchhq/peeranha-nest) · [peeranha-nest](https://github.com/nightswatchhq/peeranha-nest) |
 
@@ -65,16 +65,22 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **ERC-721 / ERC-1155 NFT** | NFT | 1 | 🟢 available | Ethereum, Arbitrum, Base | `nuthatch init 0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D` (generic) |
 | **Uniswap V4** | DEX | 1 | 🟢 available | Ethereum, BNB Smart Chain, Polygon | [`init --from`](https://github.com/nightswatchhq/uniswap-v4-ethereum) · [uniswap-v4-ethereum](https://github.com/nightswatchhq/uniswap-v4-ethereum) |
 | **Uniswap V3** | DEX | 1 | 🟢 available | Arbitrum, Ethereum, Base, BNB Smart Chain, Polygon, Optimism | [`init --from`](https://github.com/nightswatchhq/uniswap-v3) · [uniswap-v3](https://github.com/nightswatchhq/uniswap-v3) |
-| **Aave V3** | Lending | 1 | ⚪ planned | Ethereum, Arbitrum, Base | - |
-| **ENS** | Name service | 1 | ⚪ planned | Ethereum | - |
-| **Uniswap V2 + Sushiswap** | DEX | 2 | ⚪ planned | Ethereum, Arbitrum, Base | - |
-| **Compound V2 + V3** | Lending | 2 | ⚪ planned | Ethereum, Arbitrum, Base | - |
-| **Lido** | Staking / LST | 2 | ⚪ planned | Ethereum | - |
-| **Seaport (OpenSea)** | NFT marketplace | 2 | ⚪ planned | Ethereum, Arbitrum, Base | - |
+| **Aave V3** | Lending | 1 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/aave-v3) · [aave-v3](https://github.com/nightswatchhq/aave-v3) |
+| **ENS** | Name service | 1 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/ens) · [ens](https://github.com/nightswatchhq/ens) |
+| **Uniswap V2 + Sushiswap** | DEX | 2 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/uniswap-v2) · [uniswap-v2](https://github.com/nightswatchhq/uniswap-v2) |
+| **Compound V2 + V3** | Lending | 2 | 🟢 available | Ethereum, Arbitrum, Base | [`init --from`](https://github.com/nightswatchhq/compound) · [compound](https://github.com/nightswatchhq/compound) |
+| **Lido** | Staking / LST | 2 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/lido) · [lido](https://github.com/nightswatchhq/lido) |
+| **Seaport (OpenSea)** | NFT marketplace | 2 | 🟢 available | Ethereum, Arbitrum, Base | [`init --from`](https://github.com/nightswatchhq/seaport) · [seaport](https://github.com/nightswatchhq/seaport) |
 | **Curve** | DEX | 2 | 🔴 blocked | Ethereum, Arbitrum | - |
-| **EigenLayer** | Restaking | 3 | ⚪ planned | Ethereum | - |
-| **GMX** | Perps | 3 | ⚪ planned | Arbitrum | - |
+| **EigenLayer** | Restaking | 3 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/eigenlayer) · [eigenlayer](https://github.com/nightswatchhq/eigenlayer) |
+| **GMX** | Perps | 3 | 🟢 available | Arbitrum | [`init --from`](https://github.com/nightswatchhq/gmx) · [gmx](https://github.com/nightswatchhq/gmx) |
 | **MakerDAO / Sky** | CDP | 3 | 🔴 blocked | Ethereum | - |
+| **Uniswap V2 (Arbitrum)** | DEX | 2 | 🟢 available | Arbitrum | [`init --from`](https://github.com/nightswatchhq/uniswap-v2-arbitrum) · [uniswap-v2-arbitrum](https://github.com/nightswatchhq/uniswap-v2-arbitrum) |
+| **Uniswap V2 (Base)** | DEX | 2 | 🟢 available | Base | [`init --from`](https://github.com/nightswatchhq/uniswap-v2-base) · [uniswap-v2-base](https://github.com/nightswatchhq/uniswap-v2-base) |
+| **Aave V3 (Arbitrum)** | Lending | 1 | 🟢 available | Arbitrum | [`init --from`](https://github.com/nightswatchhq/aave-v3-arbitrum) · [aave-v3-arbitrum](https://github.com/nightswatchhq/aave-v3-arbitrum) |
+| **Aave V3 (Base)** | Lending | 1 | 🟢 available | Base | [`init --from`](https://github.com/nightswatchhq/aave-v3-base) · [aave-v3-base](https://github.com/nightswatchhq/aave-v3-base) |
+| **Velodrome** | DEX | 2 | 🟢 available | Optimism | [`init --from`](https://github.com/nightswatchhq/velodrome) · [velodrome](https://github.com/nightswatchhq/velodrome) |
+| **DAI token** | CDP | 3 | 🟢 available | Ethereum | [`init --from`](https://github.com/nightswatchhq/makerdao-dai) · [makerdao-dai](https://github.com/nightswatchhq/makerdao-dai) |
 
 ## Status
 
