@@ -452,9 +452,9 @@
       ],
       "factory": true,
       "complexity": "high",
-      "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain - the same factory and tick shape as Uniswap V3, which the existing uniswap-v3 nest already models.",
+      "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
-      "note": "NOT a config change from uniswap-v3, tested 2026-08-22: PancakeSwap's pool `Swap` carries two extra uint128 protocol-fee params, so a different topic0. Reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. The factory rule ports; the child ABI does not."
+      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026), #22. NOT a config change from uniswap-v3, tested 2026-08-22: reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. Verified on-chain - the Uniswap-shaped topic0 returned 1,111 logs over 300 BSC blocks and the nine-param one 7,025, and `factory()` on an emitter of each resolves to a different factory. BSC has been in `chains.rs` since before this note was written; `init --chain bsc` needs no `--rpc`."
     },
     {
       "id": "omen-gnosis",
