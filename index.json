@@ -389,21 +389,23 @@
       "factory": false,
       "complexity": "high",
       "summary": "Perpetuals - position lifecycle, PnL and liquidations.",
-      "events": "IncreasePosition, DecreasePosition, LiquidatePosition"
+      "events": "IncreasePosition, DecreasePosition, LiquidatePosition",
+      "note": "The V1 Vault is dormant - 10 logs in 300,000 Arbitrum blocks, 164 in 3,000,000 (measured 2026-08-22). A nest on it decodes correctly and indexes almost nothing. V2 routes everything through a generic EventLog/EventLog1/EventLog2 emitter, which yields opaque encoded blobs rather than typed tables."
     },
     {
       "id": "makerdao",
       "name": "MakerDAO / Sky",
       "category": "CDP",
       "tier": 3,
-      "status": "planned",
+      "status": "blocked",
       "chains": [
         "Ethereum"
       ],
       "factory": false,
       "complexity": "high",
       "summary": "The DAI/USDS CDP engine - vaults, collateral and liquidations.",
-      "events": "vat.frob, vat.grab, Bark (Dog)"
+      "events": "vat.frob, vat.grab, Bark (Dog)",
+      "note": "Not buildable as scoped: the Vat's only event is `LogNote`, and it is anonymous - no topic0, the function selector sits in its slot - so a topic0-keyed decode yields zero tables. Applies to every core dss contract. Measured 2026-08-22; a DAI-token nest is the viable substitute."
     },
     {
       "id": "poa",
@@ -452,7 +454,7 @@
       "complexity": "high",
       "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain - the same factory and tick shape as Uniswap V3, which the existing uniswap-v3 nest already models.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
-      "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #22."
+      "note": "NOT a config change from uniswap-v3, tested 2026-08-22: PancakeSwap's pool `Swap` carries two extra uint128 protocol-fee params, so a different topic0. Reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. The factory rule ports; the child ABI does not."
     },
     {
       "id": "omen-gnosis",

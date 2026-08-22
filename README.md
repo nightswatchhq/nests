@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**35 nests**: 11 available, 6 building, 18 planned.
+**35 nests**: 11 available, 6 building, 17 planned, 1 blocked.
 
 ## Graph Protocol nests
 
@@ -74,13 +74,16 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **Curve** | DEX | 2 | ⚪ planned | Ethereum, Arbitrum | - |
 | **EigenLayer** | Restaking | 3 | ⚪ planned | Ethereum | - |
 | **GMX** | Perps | 3 | ⚪ planned | Arbitrum | - |
-| **MakerDAO / Sky** | CDP | 3 | ⚪ planned | Ethereum | - |
+| **MakerDAO / Sky** | CDP | 3 | 🔴 blocked | Ethereum | - |
 
 ## Status
 
 - 🟢 **available** - installable today, from a published repo or a contract address.
 - 🟡 **building** - running in the wild, being packaged into a published nest here.
 - ⚪ **planned** - on the catalogue, demand-ranked; not built yet. No fake install commands.
+- 🔴 **blocked** - tried, and the chain will not give it up. Distinct from *planned* on purpose: a
+  planned nest is waiting for someone's afternoon, a blocked one is waiting for a capability that does
+  not exist. Read its `note` for what stopped it.
 
 ## Publishing a nest
 

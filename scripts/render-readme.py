@@ -13,7 +13,8 @@ import json, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 nests = json.loads((ROOT / "index.json").read_text())["nests"]
 
-DOT = {"available": "🟢 available", "building": "🟡 building", "planned": "⚪ planned"}
+DOT = {"available": "🟢 available", "building": "🟡 building", "planned": "⚪ planned",
+       "blocked": "🔴 blocked"}
 
 def get_it(n):
     repo = n.get("repo")
@@ -53,7 +54,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**{len(nests)} nests**: {sum(1 for n in nests if n['status']=='available')} available, {sum(1 for n in nests if n['status']=='building')} building, {sum(1 for n in nests if n['status']=='planned')} planned.
+**{len(nests)} nests**: {sum(1 for n in nests if n['status']=='available')} available, {sum(1 for n in nests if n['status']=='building')} building, {sum(1 for n in nests if n['status']=='planned')} planned, {sum(1 for n in nests if n['status']=='blocked')} blocked.
 
 ## Graph Protocol nests
 
@@ -82,6 +83,9 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 - 🟢 **available** - installable today, from a published repo or a contract address.
 - 🟡 **building** - running in the wild, being packaged into a published nest here.
 - ⚪ **planned** - on the catalogue, demand-ranked; not built yet. No fake install commands.
+- 🔴 **blocked** - tried, and the chain will not give it up. Distinct from *planned* on purpose: a
+  planned nest is waiting for someone's afternoon, a blocked one is waiting for a capability that does
+  not exist. Read its `note` for what stopped it.
 
 ## Publishing a nest
 
