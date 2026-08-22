@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**35 nests**: 11 available, 6 building, 18 planned.
+**35 nests**: 11 available, 6 building, 17 planned, 1 blocked.
 
 ## Graph Protocol nests
 
@@ -49,7 +49,7 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **Livepeer** | 🟢 available | Arbitrum | The Livepeer protocol - transcoders, rounds, delegators, tickets and governance polls. Built for feature parity with the official Livepeer subgraph. | [`init --from`](https://github.com/nightswatchhq/livepeer-nest) · [livepeer-nest](https://github.com/nightswatchhq/livepeer-nest) |
 | **POA** | 🟢 available | Arbitrum | A full DAO-tooling stack - org deployment, Hats-based roles, tasks and bounties, hybrid + direct-democracy voting, and a gas paymaster. Replaces a subgraph that had been stuck syncing for over a day. | [`init --from`](https://github.com/nightswatchhq/poa-nest) · [poa-nest](https://github.com/nightswatchhq/poa-nest) |
 | **Aerodrome** | ⚪ planned | Base | Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25. | - |
-| **PancakeSwap V3** | ⚪ planned | BNB Smart Chain | PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain - the same factory and tick shape as Uniswap V3, which the existing uniswap-v3 nest already models. | - |
+| **PancakeSwap V3** | ⚪ planned | BNB Smart Chain | PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0. | - |
 | **Omen** | ⚪ planned | Gnosis | Omen prediction markets on Gnosis: fixed-product market makers, positions and trades. | - |
 | **Conditional Tokens** | ⚪ planned | Gnosis | Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on. | - |
 | **Forsage x2** | ⚪ planned | BNB Smart Chain | Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest. | - |
@@ -74,13 +74,16 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **Curve** | DEX | 2 | ⚪ planned | Ethereum, Arbitrum | - |
 | **EigenLayer** | Restaking | 3 | ⚪ planned | Ethereum | - |
 | **GMX** | Perps | 3 | ⚪ planned | Arbitrum | - |
-| **MakerDAO / Sky** | CDP | 3 | ⚪ planned | Ethereum | - |
+| **MakerDAO / Sky** | CDP | 3 | 🔴 blocked | Ethereum | - |
 
 ## Status
 
 - 🟢 **available** - installable today, from a published repo or a contract address.
 - 🟡 **building** - running in the wild, being packaged into a published nest here.
 - ⚪ **planned** - on the catalogue, demand-ranked; not built yet. No fake install commands.
+- 🔴 **blocked** - tried, and the chain will not give it up. Distinct from *planned* on purpose: a
+  planned nest is waiting for someone's afternoon, a blocked one is waiting for a capability that does
+  not exist. Read its `note` for what stopped it.
 
 ## Publishing a nest
 
