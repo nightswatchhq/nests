@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**35 nests**: 11 available, 6 building, 17 planned, 1 blocked.
+**35 nests**: 11 available, 6 building, 16 planned, 2 blocked.
 
 ## Graph Protocol nests
 
@@ -71,7 +71,7 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **Compound V2 + V3** | Lending | 2 | ⚪ planned | Ethereum, Arbitrum, Base | - |
 | **Lido** | Staking / LST | 2 | ⚪ planned | Ethereum | - |
 | **Seaport (OpenSea)** | NFT marketplace | 2 | ⚪ planned | Ethereum, Arbitrum, Base | - |
-| **Curve** | DEX | 2 | ⚪ planned | Ethereum, Arbitrum | - |
+| **Curve** | DEX | 2 | 🔴 blocked | Ethereum, Arbitrum | - |
 | **EigenLayer** | Restaking | 3 | ⚪ planned | Ethereum | - |
 | **GMX** | Perps | 3 | ⚪ planned | Arbitrum | - |
 | **MakerDAO / Sky** | CDP | 3 | 🔴 blocked | Ethereum | - |

@@ -302,7 +302,7 @@
       "name": "Curve",
       "category": "DEX",
       "tier": 2,
-      "status": "planned",
+      "status": "blocked",
       "chains": [
         "Ethereum",
         "Arbitrum"
@@ -310,7 +310,8 @@
       "factory": true,
       "complexity": "high",
       "summary": "StableSwap AMM - pools, exchanges and liquidity with invariant pricing.",
-      "events": "TokenExchange, AddLiquidity, RemoveLiquidity"
+      "events": "TokenExchange, AddLiquidity, RemoveLiquidity",
+      "note": "Not buildable with the declarative factory rule (measured 2026-08-22, nests#6): neither `PlainPoolDeployed` nor `MetaPoolDeployed` carries the address of the pool it deployed - verified by decoding a real log, which holds A, fee, deployer and the coins and nothing else. `child_param` must name an address parameter and there is none. `LiquidityGaugeDeployed` does name a pool but covers only 535 of 1,008 deployments, so a nest built on it would index about half of Curve and look healthy doing it."
     },
     {
       "category": "DEX",
