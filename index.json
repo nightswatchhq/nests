@@ -708,6 +708,24 @@
       "events": "IndexerEligibilityRenewed, IndexerEligibilityData, IndexerTrackingUpdated, EligibilityValidationUpdated",
       "note": "Instance A of an A/B pair on Arbitrum One (chain 42161 in graphprotocol/contracts packages/issuance/addresses.json); B is deployed with zero logs. Deployed but NOT activated: `EligibilityValidationUpdated` has never fired, `RewardsManager.rewardsEligibilityOracle()` reverts, and the source initialises `eligibilityValidationEnabled = false`. Indexed from deployment: 1,093 events, 1,022 eligibility renewals. The ABI must come from the implementation (0x66cebbec...) - both Sourcify and Blockscout answer for the proxy address with the proxy's ABI, and a nest built on that decodes nothing.",
       "repo": "https://github.com/nightswatchhq/rewards-eligibility-oracle"
+    },
+    {
+      "id": "perpl",
+      "catalogue_section": "subgraph-ports",
+      "name": "Perpl (perpetual futures on Monad)",
+      "category": "Perpetuals",
+      "tier": 1,
+      "status": "building",
+      "chains": [
+        "Monad"
+      ],
+      "factory": false,
+      "complexity": "medium",
+      "summary": "Perpl's exchange contract emits about seventy percent of Monad's logs and nothing indexed it publicly. Fills, funding, liquidations and markets in real units, from the contract's own 202 events, with the ABI vendored from Perpl's MIT SDK.",
+      "events": "OrderRequestV2, OrderChanged, OrderPlaced, OrderCancelled, MakerOrderFilledV2, TakerOrderFilledV2, PositionOpenedV2, PositionClosed, PositionLiquidated, FundingEventCompleted, ContractAddedV2",
+      "repo": "https://github.com/nightswatchhq/perpl-nest",
+      "command": "nuthatch init --from https://github.com/nightswatchhq/perpl-nest",
+      "note": "Building, 2026-09-04: backfilling 47 million blocks from Perpl's first log (2026-02-11) on Nuthatch 3.3.1 at about 1,250 events a second; parity against Perpl's public candles and funding API is scripted and not yet run. The implementation is unverified and Perpl publishes no ABI - the one here is crates/sdk/abi/dex/Exchange.json from PerplFoundation/dex-sdk (MIT, commit 65e0e897da), and every signature the live contract emits hashes to it. A keyed endpoint is strongly advised: rpc.monad.xyz caps getLogs at 100 blocks and this contract carries 77 logs a block. Set start_block by hand - no Monad endpoint we have found serves historic state, so init cannot detect the deployment block. Tracking: nightswatchhq/nuthatch#1148."
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
