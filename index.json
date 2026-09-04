@@ -582,6 +582,40 @@
       "repo": "https://github.com/nightswatchhq/peeranha-nest"
     },
     {
+      "id": "pancakeswap-infinity-cl-bsc",
+      "catalogue_section": "subgraph-ports",
+      "name": "PancakeSwap Infinity CL",
+      "category": "DEX",
+      "tier": 1,
+      "status": "available",
+      "chains": [
+        "BNB Smart Chain"
+      ],
+      "factory": false,
+      "complexity": "low",
+      "summary": "PancakeSwap's Infinity concentrated-liquidity singleton - swaps, liquidity changes and pool initialisations from one PoolManager, plus the PositionManager lifecycle. No factory and no pool contracts.",
+      "events": "Initialize, ModifyLiquidity, Swap, Donate, DynamicLPFeeUpdated, ProtocolFeeUpdated, MintPosition, Subscription, Unsubscription, Transfer",
+      "note": "Ported from Graph deployment QmVjXU7yQNyyLphPGqoz8iBzqu5YXphooFJn15JqZ6ZMFz, which has been unqueryable through the gateway since 2026-08-02: one deterministic nonFatalError at BSC block 113581822 (`Pool.load(poolId)!` at src/mappings/swap.ts:39) leaves it synced but unattestable, and only a publisher republish fixes it. Scaffolded in one command with `init --from-subgraph`. Indexes a superset of the manifest's events, since the getLogs sweep is address-filtered and extra topics cost nothing. Live-tested over 3,293 BSC blocks, 21,305 rows across 7 tables. Graph's eth_call-derived USD pricing and the Pool/Token day and hour series are intentionally not claimed. Backfilling from block 47214308 needs your own archive endpoint - every keyless BSC RPC tested on 2026-08-26 refuses archive getLogs.",
+      "repo": "https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc"
+    },
+    {
+      "id": "machinex-peaq",
+      "catalogue_section": "subgraph-ports",
+      "name": "MachineX",
+      "category": "DEX",
+      "tier": 2,
+      "status": "building",
+      "chains": [
+        "peaq"
+      ],
+      "factory": true,
+      "complexity": "high",
+      "summary": "A Solidly/Ramses-style DEX on peaq - concentrated-liquidity and legacy pools discovered from their factories, gauges and fee distributors from the Voter, and position lifecycle from the NonfungiblePositionManager.",
+      "events": "PoolCreated, PairCreated, GaugeCreated, Swap, Mint, Burn, Collect, Sync, NotifyReward, ClaimRewards, IncreaseLiquidity, DecreaseLiquidity, Transfer",
+      "note": "Ported from Graph deployment QmcssauLtPam7J4pmAbvCKVoaBH6mowXhQJpLRMEyoQsEL. Building rather than available, for two measured reasons (2026-08-26). First, the manifest's Voter source at 0x3aF1dD7A2755201F8e2D6dCDA1a61d9f54838f4f has no code on peaq - eth_getCode returns 0x at latest on all three public endpoints - so its five handlers can never have fired and the gauge and fee-distributor factory rules can never discover a child. Second, no public peaq endpoint is archive and none of them errors: eth_getCode on the CL factory gives 6298 bytes at latest and 0x at block 5248285, and wide getLogs at deployment height returns [] rather than failing, so a backfill from 5248275 completes clean and empty. Pool and gauge tables therefore need an archive peaq node to ever populate. Live-tested over 20,002 blocks: decode is correct, 99 rows, but 40 of 44 tables empty. The seven factory rules are hand-written, since init --from-subgraph can only list candidates.",
+      "repo": "https://github.com/nightswatchhq/machinex-peaq"
+    },
+    {
       "id": "uniswap-v2-arbitrum",
       "name": "Uniswap V2 (Arbitrum)",
       "category": "DEX",
