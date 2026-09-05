@@ -13,37 +13,29 @@ cache = true
 
 [tasks.index]
 desc = "Fail if index.json is not valid JSON"
-run = ["python3 -m json.tool index.json"]
+run = ["jq empty index.json"]
 sources = ["index.json"]
 
 [tasks.readme]
 desc = "Regenerate README.md from index.json"
-run = ["python3 scripts/render-readme.py"]
-sources = ["index.json", "scripts/render-readme.py"]
+run = ["scripts/render-readme.sh"]
+sources = ["index.json", "scripts/render-readme.sh"]
 no_cache = true
 
 [tasks.drift]
 desc = "Fail if README.md is stale against index.json"
 shell = true
-sources = ["index.json", "README.md", "scripts/render-readme.py"]
-run = ["python3 scripts/render-readme.py && git diff --exit-code -- README.md"]
+sources = ["index.json", "README.md", "scripts/render-readme.sh"]
+run = ["scripts/render-readme.sh && git diff --exit-code -- README.md"]
 
 [tasks.repos]
 desc = "Fail if an available nest offers neither a repo to clone nor a command to run"
 shell = true
 sources = ["index.json"]
 run = ['''
-python3 - <<'PY'
-import json, sys
-d = json.load(open("index.json"))
-bad = [n["id"] for n in d["nests"]
-       if n.get("status") == "available"
-       and not n.get("repo") and not n.get("command")]
-if bad:
-    print("available, but no repo and no command:", ", ".join(bad)); sys.exit(1)
-avail = sum(1 for n in d["nests"] if n.get("status") == "available")
-print(f"{len(d['nests'])} nests, {avail} available, each reachable")
-PY
+bad=$(jq -r '[.nests[] | select(.status == "available" and (.repo // "") == "" and (.command // "") == "") | .id] | join(", ")' index.json)
+if [ -n "$bad" ]; then echo "available, but no repo and no command: $bad"; exit 1; fi
+jq -r '"\(.nests | length) nests, \([.nests[] | select(.status == "available")] | length) available, each reachable"' index.json
 ''']
 
 [tasks.links]

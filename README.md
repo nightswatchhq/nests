@@ -9,7 +9,7 @@ address with `nuthatch init 0xAddr`. This repo is the human- and machine-readabl
 ([`index.json`](index.json)), the single source of truth the website builds from. Each nest lives in
 its own repo on this org.
 
-**This README is generated from `index.json`** by `scripts/render-readme.py`. Do not edit it by hand;
+**This README is generated from `index.json`** by `scripts/render-readme.sh`. Do not edit it by hand;
 edit the index and re-run the script. It was hand-maintained until 2026-08-19 and had drifted nine
 entries behind.
 
@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**43 nests**: 34 available, 6 building, 0 planned, 3 blocked.
+**46 nests**: 35 available, 8 building, 0 planned, 3 blocked.
 
 ## Graph Protocol nests
 
@@ -58,6 +58,9 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **Request Payments** | 🟢 available | Ethereum | Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement. | [`init --from`](https://github.com/nightswatchhq/request-payments) · [request-payments](https://github.com/nightswatchhq/request-payments) |
 | **SpookySwap** | 🟡 building | Fantom | SpookySwap's factory and every pair it creates on Fantom Opera: swaps, mints, burns, syncs and LP transfers. | [`init --from`](https://github.com/nightswatchhq/spookyswap-nest) · [spookyswap-nest](https://github.com/nightswatchhq/spookyswap-nest) |
 | **Peeranha** | 🟢 available | Polygon | Peeranha's community-driven Q&A protocol on Polygon: users, communities, tags, posts, replies and reputation events across five contracts. | [`init --from`](https://github.com/nightswatchhq/peeranha-nest) · [peeranha-nest](https://github.com/nightswatchhq/peeranha-nest) |
+| **PancakeSwap Infinity CL** | 🟢 available | BNB Smart Chain | PancakeSwap's Infinity concentrated-liquidity singleton - swaps, liquidity changes and pool initialisations from one PoolManager, plus the PositionManager lifecycle. No factory and no pool contracts. | [`init --from`](https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc) · [pancakeswap-infinity-cl-bsc](https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc) |
+| **MachineX** | 🟡 building | peaq | A Solidly/Ramses-style DEX on peaq - concentrated-liquidity and legacy pools discovered from their factories, gauges and fee distributors from the Voter, and position lifecycle from the NonfungiblePositionManager. | [`init --from`](https://github.com/nightswatchhq/machinex-peaq) · [machinex-peaq](https://github.com/nightswatchhq/machinex-peaq) |
+| **Perpl (perpetual futures on Monad)** | 🟡 building | Monad | Perpl's exchange contract emits about seventy percent of Monad's logs and nothing indexed it publicly. Fills, funding, liquidations and markets in real units, from the contract's own 202 events, with the ABI vendored from Perpl's MIT SDK. | [`init --from`](https://github.com/nightswatchhq/perpl-nest) · [perpl-nest](https://github.com/nightswatchhq/perpl-nest) |
 
 ## Other nests
 
@@ -97,5 +100,5 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 
 A nest is self-contained: `nuthatch.toml`, vendored `abis/`, and its `views/` and `checks/`.
 Publishing one is a `git push` of its repo to this org, then adding it to `index.json` and re-running
-`scripts/render-readme.py`. See [`horizon-nest`](https://github.com/nightswatchhq/horizon-nest) for
+`scripts/render-readme.sh`. See [`horizon-nest`](https://github.com/nightswatchhq/horizon-nest) for
 the shape.
