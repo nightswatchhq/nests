@@ -17,7 +17,7 @@ entries behind.
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
 - **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
-**46 nests**: 35 available, 8 building, 0 planned, 3 blocked.
+**47 nests**: 36 available, 8 building, 0 planned, 3 blocked.
 
 ## Graph Protocol nests
 
@@ -61,6 +61,7 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 | **PancakeSwap Infinity CL** | 🟢 available | BNB Smart Chain | PancakeSwap's Infinity concentrated-liquidity singleton - swaps, liquidity changes and pool initialisations from one PoolManager, plus the PositionManager lifecycle. No factory and no pool contracts. | [`init --from`](https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc) · [pancakeswap-infinity-cl-bsc](https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc) |
 | **MachineX** | 🟡 building | peaq | A Solidly/Ramses-style DEX on peaq - concentrated-liquidity and legacy pools discovered from their factories, gauges and fee distributors from the Voter, and position lifecycle from the NonfungiblePositionManager. | [`init --from`](https://github.com/nightswatchhq/machinex-peaq) · [machinex-peaq](https://github.com/nightswatchhq/machinex-peaq) |
 | **Perpl (perpetual futures on Monad)** | 🟡 building | Monad | Perpl's exchange contract emits about seventy percent of Monad's logs and nothing indexed it publicly. Fills, funding, liquidations and markets in real units, from the contract's own 202 events, with the ABI vendored from Perpl's MIT SDK. | [`init --from`](https://github.com/nightswatchhq/perpl-nest) · [perpl-nest](https://github.com/nightswatchhq/perpl-nest) |
+| **BetSwirl BNB Chain** | 🟢 available | BNB Smart Chain | The first subgraph stopgap nest: BetSwirl on-chain games on BNB Smart Chain, whose subgraph no indexer serves since 2026-09-17. Answers every field BetSwirl's own SDK queries over Graph-dialect GraphQL, exactly, and refuses the rest by name. | [`init --from`](https://github.com/nightswatchhq/betswirl-bnb-nest) · [betswirl-bnb-nest](https://github.com/nightswatchhq/betswirl-bnb-nest) |
 
 ## Other nests
 
