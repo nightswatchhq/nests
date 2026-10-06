@@ -760,6 +760,23 @@
       "repo": "https://github.com/nightswatchhq/perpl-nest",
       "command": "nuthatch init --from https://github.com/nightswatchhq/perpl-nest",
       "note": "Building, 2026-09-04: backfilling 47 million blocks from Perpl's first log (2026-02-11) on Nuthatch 3.3.1 at about 1,250 events a second; parity against Perpl's public candles and funding API is scripted and not yet run. The implementation is unverified and Perpl publishes no ABI - the one here is crates/sdk/abi/dex/Exchange.json from PerplFoundation/dex-sdk (MIT, commit 65e0e897da), and every signature the live contract emits hashes to it. A keyed endpoint is strongly advised: rpc.monad.xyz caps getLogs at 100 blocks and this contract carries 77 logs a block. Set start_block by hand - no Monad endpoint we have found serves historic state, so init cannot detect the deployment block. Tracking: nightswatchhq/nuthatch#1148."
+    },
+    {
+      "id": "betswirl-bnb",
+      "catalogue_section": "subgraph-ports",
+      "name": "BetSwirl BNB Chain",
+      "category": "Other",
+      "tier": 3,
+      "status": "available",
+      "chains": [
+        "BNB Smart Chain"
+      ],
+      "factory": false,
+      "complexity": "medium",
+      "summary": "The first subgraph stopgap nest: BetSwirl on-chain games on BNB Smart Chain, whose subgraph no indexer serves since 2026-09-17. Answers every field BetSwirl's own SDK queries over Graph-dialect GraphQL, exactly, and refuses the rest by name.",
+      "events": "PlaceBet, Roll, BetRefunded, AddToken, SetHouseEdge, SetAffiliateHouseEdge, AllocateHouseEdgeAmount, GameConfigAdded",
+      "note": "Hand-ported from deployment Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB: rules read from the deployed WASM, checked against 32,257 bets from raw chain logs with zero differences. GraphQL needs the nuthatch-graph download (4.11.0+); history needs a BNB archive endpoint, or seed it from the public mirror. Handback: docs/stopgap/betswirl-bnb.md in nightswatchhq/nuthatch.",
+      "repo": "https://github.com/nightswatchhq/betswirl-bnb-nest"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
