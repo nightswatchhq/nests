@@ -775,7 +775,7 @@
       "complexity": "medium",
       "summary": "The first subgraph stopgap nest: BetSwirl on-chain games on BNB Smart Chain, whose subgraph no indexer serves since 2026-09-17. Answers every field BetSwirl's own SDK queries over Graph-dialect GraphQL, exactly, and refuses the rest by name.",
       "events": "PlaceBet, Roll, BetRefunded, AddToken, SetHouseEdge, SetAffiliateHouseEdge, AllocateHouseEdgeAmount, GameConfigAdded",
-      "note": "Hand-ported from deployment Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB: rules read from the deployed WASM, checked against 32,257 bets from raw chain logs with zero differences. GraphQL needs the nuthatch-graph download (4.11.0+); history needs a BNB archive endpoint, or seed it from the public mirror. Handback: docs/stopgap/betswirl-bnb.md in nightswatchhq/nuthatch.",
+      "note": "Retired 2026-10-07: no users, hosted endpoint off. Hand-ported from deployment Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB: rules read from the deployed WASM, checked against 32,257 bets from raw chain logs with zero differences. GraphQL needs the nuthatch-graph download (4.11.0+); history needs a BNB archive endpoint, or seed it from the public mirror. Handback: docs/stopgap/betswirl-bnb.md in nightswatchhq/nuthatch.",
       "repo": "https://github.com/nightswatchhq/betswirl-bnb-nest"
     }
   ],
