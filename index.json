@@ -52,7 +52,7 @@
       "summary": "The Graph's own protocol state - staking provisions, allocations, delegation, curation and rewards. The data every indexer pays GRT to read today.",
       "events": "ProvisionCreated, AllocationCreated, AllocationClosed, TokensDelegated, Signalled, HorizonRewardsAssigned",
       "note": "Covers the Horizon staking/service surface today (operators, allocations, delegations, rewards); extending to the full network-subgraph surface - Indexer Directory, Curation, Epochs (RFC-0011).",
-      "repo": "https://github.com/nightswatchhq/horizon-nest"
+      "repo": "https://github.com/nuthatch-org/horizon-nest"
     },
     {
       "id": "graph-staking",
@@ -68,7 +68,7 @@
       "summary": "HorizonStaking delegation history: deposits, undelegations and completed withdrawals for Graph indexers and delegators.",
       "events": "TokensDelegated, TokensUndelegated, DelegatedTokensWithdrawn, StakeDelegatedWithdrawn",
       "note": "Standalone package for Lodestar's Delegation Activity feed. Archive-backed fixtures are committed; independent source comparison and Lodestar cutover remain the release gate.",
-      "repo": "https://github.com/nightswatchhq/graph-staking-nest"
+      "repo": "https://github.com/nuthatch-org/graph-staking-nest"
     },
     {
       "id": "graph-allocations",
@@ -84,7 +84,7 @@
       "summary": "Horizon allocation lifecycle and L2 curation signal in one nest, with a `port_queue` view over both: subgraph deployments carrying signal that no indexer is serving.",
       "events": "AllocationCreated, AllocationClosed, AllocationResized, Signalled, Burned",
       "note": "Needs an archive RPC: curation signal is cumulative, so L2Curation is indexed from its 2022 deployment. Full backfill measured at 12 minutes and 54 MB. Filter honestly - net signal above zero returns 3,853 of 7,621 still-signalled deployments, which is a haystack; above 1,000 it is 63. Release gate: reading the top of that list by hand, and confirming that no open allocation on SubgraphService really does mean unserved, since LegacyAllocationMigrated has fired zero times.",
-      "repo": "https://github.com/nightswatchhq/graph-allocations-nest"
+      "repo": "https://github.com/nuthatch-org/graph-allocations-nest"
     },
     {
       "id": "graph-gns",
@@ -100,7 +100,7 @@
       "summary": "L2GNS subgraph publication history, including the event stream behind Graph developer-activity metrics.",
       "events": "SubgraphPublished",
       "note": "Standalone package for Lodestar's Developer Activity chart. Archive-backed fixtures are committed; independent source comparison and Lodestar cutover remain the release gate.",
-      "repo": "https://github.com/nightswatchhq/graph-gns-nest"
+      "repo": "https://github.com/nuthatch-org/graph-gns-nest"
     },
     {
       "id": "graph-tap-escrow",
@@ -116,7 +116,7 @@
       "summary": "Legacy TAP Escrow account funding, settlement, thaw, and authorised-signer event history.",
       "events": "Deposit, Redeem, Withdraw, Thaw, CancelThaw, AuthorizeSigner, RevokeAuthorizedSigner, ThawSigner, CancelThawSigner",
       "note": "Standalone replacement for the legacy TAP Escrow subgraph. The repository is public; fixed-block parity fixtures are required before it becomes available.",
-      "repo": "https://github.com/nightswatchhq/graph-tap-escrow-nest"
+      "repo": "https://github.com/nuthatch-org/graph-tap-escrow-nest"
     },
     {
       "id": "ebo",
@@ -132,7 +132,7 @@
       "summary": "The per-epoch canonical block for every indexed chain - the reference all indexers use to close multichain allocations consistently.",
       "events": "DataEdge calldata payloads (EventfulDataEdge emits on Arbitrum)",
       "note": "Raw EventfulDataEdge payload feed is installable now. Packed-message semantic decoding and fixed-block parity remain the release gate.",
-      "repo": "https://github.com/nightswatchhq/epoch-block-oracle-nest"
+      "repo": "https://github.com/nuthatch-org/epoch-block-oracle-nest"
     },
     {
       "id": "qos-reo",
@@ -165,7 +165,7 @@
       "summary": "Concentrated liquidity in a singleton - every pool lives inside one PoolManager, so there is no factory and no pool contracts. Hook adoption, per-pool activity and liquidity.",
       "events": "Initialize, Swap, ModifyLiquidity, Donate, Transfer, ProtocolFeeUpdated",
       "note": "Structurally the SIMPLEST nest in the catalogue - one static contract, no templates, no factory rules. The work is volume, not config: ~17 events/block, ~68M events for full history from block 21688329 (~7 h at a measured 2,785 ev/s). Ships with a recent-history quickstart. No USD pricing (needs a token list; the declarative core makes no contract calls). The top 25 ranks uniswap-v4 deployments on BNB (#5) and Polygon (#18) as well; both need a `chains.rs` entry before `init` works without `--rpc`.",
-      "repo": "https://github.com/nightswatchhq/uniswap-v4-ethereum"
+      "repo": "https://github.com/nuthatch-org/uniswap-v4-ethereum"
     },
     {
       "id": "uniswap-v4-base",
@@ -182,7 +182,7 @@
       "summary": "Uniswap V4's Base deployment - pool lifecycle and swaps, PositionManager subscriptions, and Arrakis private-hook creation, all from three static contracts.",
       "events": "Initialize, ModifyLiquidity, Swap, Subscription, Unsubscription, Transfer, LogCreatePrivateHook",
       "note": "Derived from Graph deployment Qmbsc6XQWbiv4DfLVfaNciScqYLyDWUYjWzrFBbzzmRsMB. Event inputs are covered exactly; Graph's eth_call-derived token metadata, valuation, and entity time series are intentionally not claimed. Live-tested over 9,403 Base blocks at 3,484 decoded events/s.",
-      "repo": "https://github.com/nightswatchhq/uniswap-v4-base"
+      "repo": "https://github.com/nuthatch-org/uniswap-v4-base"
     },
     {
       "id": "uniswap-v3",
@@ -203,7 +203,7 @@
       "summary": "Concentrated-liquidity DEX - every pool discovered from the factory, with swaps, prices, and gross volume. The showcase for factory discovery: one rule tracks every pool, no per-pool config.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
       "note": "Configured for Arbitrum; the factory address is identical on every chain, so re-pointing is a two-line edit. Token decimals / USD pricing need a vendored token list (the declarative core makes no contract calls). The top 25 ranks uniswap-v3 deployments on BNB (#3), Polygon (#10) and Optimism (#15) as well; those three need a `chains.rs` entry before `init` works without `--rpc`.",
-      "repo": "https://github.com/nightswatchhq/uniswap-v3"
+      "repo": "https://github.com/nuthatch-org/uniswap-v3"
     },
     {
       "id": "aave-v3",
@@ -218,7 +218,7 @@
       "complexity": "medium",
       "summary": "The lending flagship - supplies, borrows, repayments, liquidations and rates across 20+ chains.",
       "events": "Supply, Borrow, Repay, LiquidationCall, ReserveUsedAsCollateral",
-      "repo": "https://github.com/nightswatchhq/aave-v3"
+      "repo": "https://github.com/nuthatch-org/aave-v3"
     },
     {
       "id": "ens",
@@ -233,7 +233,7 @@
       "complexity": "medium",
       "summary": "The archetypal name-service index - registrations, expiries, resolvers and records across the registry and registrar.",
       "events": "NameRegistered, NameRenewed, Transfer, NewResolver",
-      "repo": "https://github.com/nightswatchhq/ens"
+      "repo": "https://github.com/nuthatch-org/ens"
     },
     {
       "id": "uniswap-v2",
@@ -248,7 +248,7 @@
       "complexity": "medium",
       "summary": "Constant-product AMM - the simpler Uniswap, and the template Sushiswap reuses. One nest, two protocols.",
       "events": "PairCreated, Swap, Mint, Burn, Sync",
-      "repo": "https://github.com/nightswatchhq/uniswap-v2"
+      "repo": "https://github.com/nuthatch-org/uniswap-v2"
     },
     {
       "id": "compound",
@@ -265,7 +265,7 @@
       "complexity": "medium",
       "summary": "cToken and Comet money-markets - supply, borrow, repayment and liquidation.",
       "events": "Mint, Redeem, Borrow, RepayBorrow, LiquidateBorrow",
-      "repo": "https://github.com/nightswatchhq/compound"
+      "repo": "https://github.com/nuthatch-org/compound"
     },
     {
       "id": "lido",
@@ -280,7 +280,7 @@
       "complexity": "medium",
       "summary": "The liquid-staking leader - stETH/wstETH deposits, withdrawals, rebases and oracle reporting.",
       "events": "Submitted, Transfer, TokenRebased, WithdrawalRequested",
-      "repo": "https://github.com/nightswatchhq/lido"
+      "repo": "https://github.com/nuthatch-org/lido"
     },
     {
       "id": "seaport",
@@ -297,7 +297,7 @@
       "complexity": "medium",
       "summary": "The protocol behind the largest NFT marketplace - order fulfilment and cancellation.",
       "events": "OrderFulfilled, OrderCancelled, CounterIncremented",
-      "repo": "https://github.com/nightswatchhq/seaport"
+      "repo": "https://github.com/nuthatch-org/seaport"
     },
     {
       "id": "curve",
@@ -327,7 +327,7 @@
       "id": "squadswap-wow-v2-bsc",
       "name": "SquadSwap WOW v2",
       "note": "Ported straight from the live subgraph deployment QmQTCx7o6NW9SdJuyQSCYz71YLm3K43dkmtjZ38hbqvwPL, with that deployment's own pinned ABIs vendored rather than re-resolved. A PancakeSwap-V3 fork, so Swap carries protocolFeesToken0/1 that vanilla V3 does not emit. Needs a BSC archive endpoint for history: every free public BSC RPC tested refuses deep getLogs or archive state - run nuthatch doctor before trusting one.",
-      "repo": "https://github.com/nightswatchhq/squadswap-wow-v2-bsc",
+      "repo": "https://github.com/nuthatch-org/squadswap-wow-v2-bsc",
       "status": "available",
       "summary": "Concentrated-liquidity DEX on BNB Smart Chain with a fee-override layer vanilla V3 lacks: a separate PoolManager can override a pool's fee and toggle it independently, so the launch tier is not the live fee. Pools are factory-discovered.",
       "tier": 3
@@ -347,7 +347,7 @@
       "summary": "DOUDOCHAIN_V2 ticket, prize, series, membership, voucher, VRF, refund, redraw and collection-book event data from 13 fixed Arbitrum contracts.",
       "events": "Transfer, NewSeries, NewTicketStatus, LastPrizeDraw, TicketPurchaseMinted, RefundClaimed, RedrawRequested, VrfRandomWordsFulfilled",
       "note": "Seeded from Graph deployment QmXf82bXak3752bwJ1x7SWchMiEP3Z4vWCWxUJ2HY3wdhj with its pinned source ABIs. The original's four file/ipfs templates enrich off-chain content; they are intentionally outside this deterministic event-input nest.",
-      "repo": "https://github.com/nightswatchhq/doudouchain-v2-nest"
+      "repo": "https://github.com/nuthatch-org/doudouchain-v2-nest"
     },
     {
       "id": "livepeer",
@@ -364,7 +364,7 @@
       "summary": "The Livepeer protocol - transcoders, rounds, delegators, tickets and governance polls. Built for feature parity with the official Livepeer subgraph.",
       "events": "TranscoderUpdate, Bond, Unbond, Rebond, EarningsClaimed, Reward, NewRound, WinningTicketRedeemed, PollCreated, Vote",
       "note": "All 11 subgraph dataSources, with the subgraph's own implementation ABIs vendored - Sourcify only exposes the ManagerProxy ABI, which omits every real event. Governance polls are factory-discovered.",
-      "repo": "https://github.com/nightswatchhq/livepeer-nest"
+      "repo": "https://github.com/nuthatch-org/livepeer-nest"
     },
     {
       "id": "eigenlayer",
@@ -379,7 +379,7 @@
       "complexity": "medium",
       "summary": "Restaking - operator registration, staker delegation, deposits and withdrawals.",
       "events": "OperatorRegistered, StakerDelegated, Deposit, WithdrawalQueued",
-      "repo": "https://github.com/nightswatchhq/eigenlayer"
+      "repo": "https://github.com/nuthatch-org/eigenlayer"
     },
     {
       "id": "gmx",
@@ -395,7 +395,7 @@
       "summary": "Perpetuals - position lifecycle, PnL and liquidations.",
       "events": "IncreasePosition, DecreasePosition, LiquidatePosition",
       "note": "The V1 Vault is dormant - 10 logs in 300,000 Arbitrum blocks, 164 in 3,000,000 (measured 2026-08-22). A nest on it decodes correctly and indexes almost nothing. V2 routes everything through a generic EventLog/EventLog1/EventLog2 emitter, which yields opaque encoded blobs rather than typed tables.",
-      "repo": "https://github.com/nightswatchhq/gmx"
+      "repo": "https://github.com/nuthatch-org/gmx"
     },
     {
       "id": "makerdao",
@@ -427,7 +427,7 @@
       "summary": "A full DAO-tooling stack - org deployment, Hats-based roles, tasks and bounties, hybrid + direct-democracy voting, and a gas paymaster. Replaces a subgraph that had been stuck syncing for over a day.",
       "events": "OrgDeployed, ContractRegistered, TransferSingle, TaskCreated, TaskCompleted, NewProposal, VoteCast, UsageIncreased",
       "note": "19 contracts and 207 tables across 42.5M Arbitrum blocks - 848 events, sealed in 59s. The subgraph stalls on 10 file/ipfs data sources and 19 dynamic templates; this nest indexes metadata hashes instead of fetching CIDs, keeping the indexing path offline and deterministic.",
-      "repo": "https://github.com/nightswatchhq/poa-nest"
+      "repo": "https://github.com/nuthatch-org/poa-nest"
     },
     {
       "id": "aerodrome",
@@ -444,7 +444,7 @@
       "summary": "Aerodrome's ve(3,3) DEX on Base: pools, gauges, votes and fee distribution. The sixth-highest-earning subgraph on the network and the largest non-Uniswap DEX in the top 25.",
       "events": "PoolCreated, Swap, Mint, Burn, Voted, GaugeCreated, NotifyReward",
       "note": "Ranked #6 in the network's top 25 by query fees (Aug 2026). Base is already a first-class chain, so this is nest work rather than chain work.",
-      "repo": "https://github.com/nightswatchhq/aerodrome"
+      "repo": "https://github.com/nuthatch-org/aerodrome"
     },
     {
       "id": "pancakeswap-v3-bsc",
@@ -461,7 +461,7 @@
       "summary": "PancakeSwap V3 concentrated-liquidity pools on BNB Smart Chain. The factory rule ports straight from the uniswap-v3 nest; the pool ABI does not - PancakeSwap's `Swap` carries two extra uint128 protocol-fee params, so a different topic0.",
       "events": "PoolCreated, Swap, Mint, Burn, Collect, Flash",
       "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026), #22. NOT a config change from uniswap-v3, tested 2026-08-22: reusing the Uniswap pool ABI seals zero swaps while reporting a healthy run. Verified on-chain - the Uniswap-shaped topic0 returned 1,111 logs over 300 BSC blocks and the nine-param one 7,025, and `factory()` on an emitter of each resolves to a different factory. BSC has been in `chains.rs` since before this note was written; `init --chain bsc` needs no `--rpc`.",
-      "repo": "https://github.com/nightswatchhq/pancakeswap-v3-bsc"
+      "repo": "https://github.com/nuthatch-org/pancakeswap-v3-bsc"
     },
     {
       "id": "omen-gnosis",
@@ -478,7 +478,7 @@
       "summary": "Omen prediction markets on Gnosis: fixed-product market makers, positions and trades.",
       "events": "FPMMCreated, FPMMBuy, FPMMSell, FPMMFundingAdded, FPMMFundingRemoved",
       "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #19, and notable for the highest fee-per-query figure in the top 25 by a wide margin.",
-      "repo": "https://github.com/nightswatchhq/omen-gnosis"
+      "repo": "https://github.com/nuthatch-org/omen-gnosis"
     },
     {
       "id": "conditional-tokens-gnosis",
@@ -495,7 +495,7 @@
       "summary": "Gnosis Conditional Tokens: conditions, positions, splits, merges and redemptions - the collateral layer Omen and other prediction markets settle on.",
       "events": "ConditionPreparation, ConditionResolution, PositionSplit, PositionsMerge, PayoutRedemption",
       "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for Gnosis before it can be initialised without `--rpc`. Ranked #23.",
-      "repo": "https://github.com/nightswatchhq/conditional-tokens-gnosis"
+      "repo": "https://github.com/nuthatch-org/conditional-tokens-gnosis"
     },
     {
       "id": "forsage-bsc",
@@ -512,7 +512,7 @@
       "summary": "Forsage x2 matrix contract on BNB Smart Chain: registrations, upgrades and referral payouts. A plain fixed-contract event nest.",
       "events": "Registration, Upgrade, NewUserPlace, MissedEthReceive, SentExtraEthDividends",
       "note": "Ranked in the network's top 25 subgraphs by query fees (Aug 2026). Needs a `chains.rs` entry for BNB Smart Chain before it can be initialised without `--rpc`. Ranked #12.",
-      "repo": "https://github.com/nightswatchhq/forsage-bsc"
+      "repo": "https://github.com/nuthatch-org/forsage-bsc"
     },
     {
       "id": "request-payments",
@@ -529,7 +529,7 @@
       "summary": "Request Network payment proxies: ERC-20 and native payments with reference-tagged settlement.",
       "events": "TransferWithReferenceAndFee, TransferWithReference",
       "note": "Ranked #20 in the top 25 by query fees (Aug 2026). The ranked deployment is on Sepolia; the mainnet contracts are the ones worth indexing.",
-      "repo": "https://github.com/nightswatchhq/request-payments"
+      "repo": "https://github.com/nuthatch-org/request-payments"
     },
     {
       "id": "graph-network",
@@ -545,7 +545,7 @@
       "summary": "The full Graph Network subgraph: indexers, allocations, curation, delegation, epochs and subgraph deployments in one surface. The pieces already ship as separate nests (graph-staking, graph-gns, graph-allocations); this is the union.",
       "events": "StakeDeposited, AllocationCreated, AllocationClosed, Signalled, Burned, SubgraphPublished, EpochRun",
       "note": "Ranked #9 in the top 25 by query fees (Aug 2026) and the heaviest-to-sync subgraph on the list. Tier 0.1 of the nest catalogue calls it the crown jewel; it is also how the port queue finds deployments with signal and no indexer.",
-      "repo": "https://github.com/nightswatchhq/graph-network"
+      "repo": "https://github.com/nuthatch-org/graph-network"
     },
     {
       "id": "spookyswap",
@@ -562,7 +562,7 @@
       "summary": "SpookySwap's factory and every pair it creates on Fantom Opera: swaps, mints, burns, syncs and LP transfers.",
       "events": "PairCreated, Swap, Mint, Burn, Sync, Transfer",
       "note": "The first nest found by the port queue rather than chosen: its subgraph carries 21,491 GRT signalled and ZERO active indexer allocations, confirmed by the Graph Network subgraph. Ported by `init --from-subgraph` from deployment QmPJbGjkt..., factory rule inferred from the manifest. Fantom is not a shipped chain, so endpoints are in the config - both measured against the RFC-0030 bar, archive, 163,840-block window. Backfilling from block 3,795,376.",
-      "repo": "https://github.com/nightswatchhq/spookyswap-nest"
+      "repo": "https://github.com/nuthatch-org/spookyswap-nest"
     },
     {
       "id": "peeranha",
@@ -579,7 +579,7 @@
       "summary": "Peeranha's community-driven Q&A protocol on Polygon: users, communities, tags, posts, replies and reputation events across five contracts.",
       "events": "CommunityCreated, TagCreated, PostCreated, ReplyCreated, UserCreated, CommunityUpdated",
       "note": "Found by the port queue, not chosen. The Graph's gateway cannot serve this subgraph at all - asked directly it answers `subgraph not found: no allocations` - while 10,673 GRT sits signalled on deployment QmW4Vo3ZY... Backfilled 62.7M Polygon blocks from 29,595,889. Needs an archive endpoint via --rpc: the keyless Polygon endpoint is not archive, and the free archive one caps getLogs at 80 blocks.",
-      "repo": "https://github.com/nightswatchhq/peeranha-nest"
+      "repo": "https://github.com/nuthatch-org/peeranha-nest"
     },
     {
       "id": "pancakeswap-infinity-cl-bsc",
@@ -596,7 +596,7 @@
       "summary": "PancakeSwap's Infinity concentrated-liquidity singleton - swaps, liquidity changes and pool initialisations from one PoolManager, plus the PositionManager lifecycle. No factory and no pool contracts.",
       "events": "Initialize, ModifyLiquidity, Swap, Donate, DynamicLPFeeUpdated, ProtocolFeeUpdated, MintPosition, Subscription, Unsubscription, Transfer",
       "note": "Ported from Graph deployment QmVjXU7yQNyyLphPGqoz8iBzqu5YXphooFJn15JqZ6ZMFz, which has been unqueryable through the gateway since 2026-08-02: one deterministic nonFatalError at BSC block 113581822 (`Pool.load(poolId)!` at src/mappings/swap.ts:39) leaves it synced but unattestable, and only a publisher republish fixes it. Scaffolded in one command with `init --from-subgraph`. Indexes a superset of the manifest's events, since the getLogs sweep is address-filtered and extra topics cost nothing. Live-tested over 3,293 BSC blocks, 21,305 rows across 7 tables. Graph's eth_call-derived USD pricing and the Pool/Token day and hour series are intentionally not claimed. Backfilling from block 47214308 needs your own archive endpoint - every keyless BSC RPC tested on 2026-08-26 refuses archive getLogs.",
-      "repo": "https://github.com/nightswatchhq/pancakeswap-infinity-cl-bsc"
+      "repo": "https://github.com/nuthatch-org/pancakeswap-infinity-cl-bsc"
     },
     {
       "id": "machinex-peaq",
@@ -613,7 +613,7 @@
       "summary": "A Solidly/Ramses-style DEX on peaq - concentrated-liquidity and legacy pools discovered from their factories, gauges and fee distributors from the Voter, and position lifecycle from the NonfungiblePositionManager.",
       "events": "PoolCreated, PairCreated, GaugeCreated, Swap, Mint, Burn, Collect, Sync, NotifyReward, ClaimRewards, IncreaseLiquidity, DecreaseLiquidity, Transfer",
       "note": "Ported from Graph deployment QmcssauLtPam7J4pmAbvCKVoaBH6mowXhQJpLRMEyoQsEL. Building rather than available, for two measured reasons (2026-08-26). First, the manifest's Voter source at 0x3aF1dD7A2755201F8e2D6dCDA1a61d9f54838f4f has no code on peaq - eth_getCode returns 0x at latest on all three public endpoints - so its five handlers can never have fired and the gauge and fee-distributor factory rules can never discover a child. Second, no public peaq endpoint is archive and none of them errors: eth_getCode on the CL factory gives 6298 bytes at latest and 0x at block 5248285, and wide getLogs at deployment height returns [] rather than failing, so a backfill from 5248275 completes clean and empty. Pool and gauge tables therefore need an archive peaq node to ever populate. Live-tested over 20,002 blocks: decode is correct, 99 rows, but 40 of 44 tables empty. The seven factory rules are hand-written, since init --from-subgraph can only list candidates.",
-      "repo": "https://github.com/nightswatchhq/machinex-peaq"
+      "repo": "https://github.com/nuthatch-org/machinex-peaq"
     },
     {
       "id": "uniswap-v2-arbitrum",
@@ -629,7 +629,7 @@
       "summary": "Uniswap V2's Arbitrum deployment: every pair the factory creates, and the swaps, mints, burns and syncs on them.",
       "events": "PairCreated, Swap, Mint, Burn, Sync",
       "note": "Same ABIs as the Ethereum nest, six config values changed. Quiet chain: 6 events in the 400,000-block verification window, though the factory has 8,775 pairs historically.",
-      "repo": "https://github.com/nightswatchhq/uniswap-v2-arbitrum"
+      "repo": "https://github.com/nuthatch-org/uniswap-v2-arbitrum"
     },
     {
       "id": "uniswap-v2-base",
@@ -645,7 +645,7 @@
       "summary": "Uniswap V2's Base deployment. The busiest of the three, and the one that crosses the factory filter flip.",
       "events": "PairCreated, Swap, Mint, Burn, Sync",
       "note": "Verified over 219,411 blocks: 3,043 pairs, 139,505 swaps, 173,065 events. Crossed the RFC-0009 filter flip at 798 children with decoding intact.",
-      "repo": "https://github.com/nightswatchhq/uniswap-v2-base"
+      "repo": "https://github.com/nuthatch-org/uniswap-v2-base"
     },
     {
       "id": "aave-v3-arbitrum",
@@ -661,7 +661,7 @@
       "summary": "Aave V3's Arbitrum Pool: supplies, borrows, repayments, liquidations, flash loans and reserve updates.",
       "events": "Supply, Borrow, Repay, Withdraw, LiquidationCall, FlashLoan, ReserveDataUpdated",
       "note": "Event set is identical to the Ethereum deployment's despite different implementation bytecode, so the nest is a config change.",
-      "repo": "https://github.com/nightswatchhq/aave-v3-arbitrum"
+      "repo": "https://github.com/nuthatch-org/aave-v3-arbitrum"
     },
     {
       "id": "aave-v3-base",
@@ -677,7 +677,7 @@
       "summary": "Aave V3's Base Pool, same surface as the Ethereum and Arbitrum nests.",
       "events": "Supply, Borrow, Repay, Withdraw, LiquidationCall, FlashLoan, ReserveDataUpdated",
       "note": "Event set identical to Ethereum's. Verified over 299,358 blocks: 122,749 events.",
-      "repo": "https://github.com/nightswatchhq/aave-v3-base"
+      "repo": "https://github.com/nuthatch-org/aave-v3-base"
     },
     {
       "id": "velodrome",
@@ -693,7 +693,7 @@
       "summary": "Velodrome's ve(3,3) DEX on Optimism: pools, swaps and the fee events that make ve(3,3) different from a constant-product AMM.",
       "events": "PoolCreated, Swap, Mint, Burn, Sync, Fees, Claim",
       "note": "This nest is `aerodrome` with six values changed, and the ABIs are byte-identical: Aerodrome is a true code fork of Velodrome. Contrast pancakeswap-v3-bsc, where the same exercise against uniswap-v3 fails because PancakeSwap reimplemented the pool. A fork ports; a reimplementation does not.",
-      "repo": "https://github.com/nightswatchhq/velodrome"
+      "repo": "https://github.com/nuthatch-org/velodrome"
     },
     {
       "id": "makerdao-dai",
@@ -709,7 +709,7 @@
       "summary": "The DAI token's transfers and approvals.",
       "events": "Transfer, Approval",
       "note": "Stands in for a makerdao nest, which is blocked: the Vat's only event is anonymous, so a topic0-keyed decode yields zero tables. See the makerdao entry.",
-      "repo": "https://github.com/nightswatchhq/makerdao-dai"
+      "repo": "https://github.com/nuthatch-org/makerdao-dai"
     },
     {
       "id": "subgraph-availability-oracle",
@@ -725,7 +725,7 @@
       "summary": "The availability vote behind indexing rewards: oracles vote on whether a subgraph deployment is available, and a denied deployment stops accruing rewards.",
       "events": "OracleVote, OracleSet, VoteTimeLimitSet",
       "note": "Found via `RewardsManager.subgraphAvailabilityOracle()`. NOT the qos-reo entry and does not replace it: GIP-0079's Rewards Eligibility Oracle is undeployed (`rewardsEligibilityOracle()` reverts on both SubgraphService and RewardsManager, probed 2026-08-22) and gateway QoS telemetry is off-chain. This is the part of that neighbourhood that exists on-chain today. Ships authored views: 1,038 raw votes collapse to 13 current positions across 6 deployments and 4 oracles.",
-      "repo": "https://github.com/nightswatchhq/subgraph-availability-oracle"
+      "repo": "https://github.com/nuthatch-org/subgraph-availability-oracle"
     },
     {
       "id": "rewards-eligibility-oracle",
@@ -741,7 +741,7 @@
       "summary": "GIP-0088's Rewards Eligibility Oracle: authorised oracles mark indexers eligible to receive indexing rewards. Deployed and emitting, though not yet wired into the rewards flow.",
       "events": "IndexerEligibilityRenewed, IndexerEligibilityData, IndexerTrackingUpdated, EligibilityValidationUpdated",
       "note": "Instance A of an A/B pair on Arbitrum One (chain 42161 in graphprotocol/contracts packages/issuance/addresses.json); B is deployed with zero logs. Deployed but NOT activated: `EligibilityValidationUpdated` has never fired, `RewardsManager.rewardsEligibilityOracle()` reverts, and the source initialises `eligibilityValidationEnabled = false`. Indexed from deployment: 1,093 events, 1,022 eligibility renewals. The ABI must come from the implementation (0x66cebbec...) - both Sourcify and Blockscout answer for the proxy address with the proxy's ABI, and a nest built on that decodes nothing.",
-      "repo": "https://github.com/nightswatchhq/rewards-eligibility-oracle"
+      "repo": "https://github.com/nuthatch-org/rewards-eligibility-oracle"
     },
     {
       "id": "perpl",
@@ -757,9 +757,9 @@
       "complexity": "medium",
       "summary": "Perpl's exchange contract emits about seventy percent of Monad's logs and nothing indexed it publicly. Fills, funding, liquidations and markets in real units, from the contract's own 202 events, with the ABI vendored from Perpl's MIT SDK.",
       "events": "OrderRequestV2, OrderChanged, OrderPlaced, OrderCancelled, MakerOrderFilledV2, TakerOrderFilledV2, PositionOpenedV2, PositionClosed, PositionLiquidated, FundingEventCompleted, ContractAddedV2",
-      "repo": "https://github.com/nightswatchhq/perpl-nest",
-      "command": "nuthatch init --from https://github.com/nightswatchhq/perpl-nest",
-      "note": "Building, 2026-09-04: backfilling 47 million blocks from Perpl's first log (2026-02-11) on Nuthatch 3.3.1 at about 1,250 events a second; parity against Perpl's public candles and funding API is scripted and not yet run. The implementation is unverified and Perpl publishes no ABI - the one here is crates/sdk/abi/dex/Exchange.json from PerplFoundation/dex-sdk (MIT, commit 65e0e897da), and every signature the live contract emits hashes to it. A keyed endpoint is strongly advised: rpc.monad.xyz caps getLogs at 100 blocks and this contract carries 77 logs a block. Set start_block by hand - no Monad endpoint we have found serves historic state, so init cannot detect the deployment block. Tracking: nightswatchhq/nuthatch#1148."
+      "repo": "https://github.com/nuthatch-org/perpl-nest",
+      "command": "nuthatch init --from https://github.com/nuthatch-org/perpl-nest",
+      "note": "Building, 2026-09-04: backfilling 47 million blocks from Perpl's first log (2026-02-11) on Nuthatch 3.3.1 at about 1,250 events a second; parity against Perpl's public candles and funding API is scripted and not yet run. The implementation is unverified and Perpl publishes no ABI - the one here is crates/sdk/abi/dex/Exchange.json from PerplFoundation/dex-sdk (MIT, commit 65e0e897da), and every signature the live contract emits hashes to it. A keyed endpoint is strongly advised: rpc.monad.xyz caps getLogs at 100 blocks and this contract carries 77 logs a block. Set start_block by hand - no Monad endpoint we have found serves historic state, so init cannot detect the deployment block. Tracking: nuthatch-org/nuthatch#1148."
     },
     {
       "id": "betswirl-bnb",
@@ -775,8 +775,8 @@
       "complexity": "medium",
       "summary": "The first subgraph stopgap nest: BetSwirl on-chain games on BNB Smart Chain, whose subgraph no indexer serves since 2026-09-17. Answers every field BetSwirl's own SDK queries over Graph-dialect GraphQL, exactly, and refuses the rest by name.",
       "events": "PlaceBet, Roll, BetRefunded, AddToken, SetHouseEdge, SetAffiliateHouseEdge, AllocateHouseEdgeAmount, GameConfigAdded",
-      "note": "Retired 2026-10-07: no users, hosted endpoint off. Hand-ported from deployment Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB: rules read from the deployed WASM, checked against 32,257 bets from raw chain logs with zero differences. GraphQL needs the nuthatch-graph download (4.11.0+); history needs a BNB archive endpoint, or seed it from the public mirror. Handback: docs/stopgap/betswirl-bnb.md in nightswatchhq/nuthatch.",
-      "repo": "https://github.com/nightswatchhq/betswirl-bnb-nest"
+      "note": "Retired 2026-10-07: no users, hosted endpoint off. Hand-ported from deployment Qmd5oqyojVx5wWSFuWfKz3YVLPHdE3KU5458Qqq3SVeGEB: rules read from the deployed WASM, checked against 32,257 bets from raw chain logs with zero differences. GraphQL needs the nuthatch-graph download (4.11.0+); history needs a BNB archive endpoint, or seed it from the public mirror. Handback: docs/stopgap/betswirl-bnb.md in nuthatch-org/nuthatch.",
+      "repo": "https://github.com/nuthatch-org/betswirl-bnb-nest"
     }
   ],
   "chains_note": "`chains` lists the chains nuthatch can index today (Ethereum, Arbitrum One, Base). A protocol may be deployed more widely; support for further chains is tracked in RFC-0030 and RFC-0031 in the core repo."
