@@ -40,7 +40,7 @@ def count($status): [.[] | select(.status == $status)] | length;
 | ($nests | map(select(.category != "Graph Protocol" and .catalogue_section != "subgraph-ports"))) as $other
 | "# nuthatch nests - the index
 
-The catalogue of prebuilt **nests** for [Nuthatch](https://github.com/nightswatchhq/nuthatch): packaged
+The catalogue of prebuilt **nests** for [Nuthatch](https://github.com/nuthatch-org/nuthatch): packaged
 indexing definitions (ABIs, decoded event tables, declarative views) that replace a rented subgraph
 with a self-hosted one.
 
@@ -55,7 +55,7 @@ entries behind.
 
 - **Live catalogue page:** https://nuthatch-indexer.com/nests
 - **Proof order:** [`PRIORITY.md`](PRIORITY.md), ranked by what each nest proves rather than by demand
-- **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nightswatchhq/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
+- **Demand-ranked reasoning:** [`docs/nest-catalogue.md`](https://github.com/nuthatch-org/nuthatch/blob/main/docs/nest-catalogue.md) in the core repo
 
 **\($nests | length) nests**: \($nests | count("available")) available, \($nests | count("building")) building, \($nests | count("planned")) planned, \($nests | count("blocked")) blocked.
 
@@ -94,7 +94,7 @@ boundary: a source deployment is not an automatic claim of entity-for-entity par
 
 A nest is self-contained: `nuthatch.toml`, vendored `abis/`, and its `views/` and `checks/`.
 Publishing one is a `git push` of its repo to this org, then adding it to `index.json` and re-running
-`scripts/render-readme.sh`. See [`horizon-nest`](https://github.com/nightswatchhq/horizon-nest) for
+`scripts/render-readme.sh`. See [`horizon-nest`](https://github.com/nuthatch-org/horizon-nest) for
 the shape."
 JQ
 mv "$tmp" README.md
